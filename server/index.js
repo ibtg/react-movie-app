@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const config = require('./server/config/key');
+const config = require('./config/key');
 const bodyParser = require('body-parser');
-const { User } = require('./server/models/User');
+const { User } = require('./models/User');
 
 // body parser
 app.use(bodyParser.urlencoded({ extended: true }));
