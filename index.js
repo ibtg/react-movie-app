@@ -1,6 +1,24 @@
 const express = require('express');
 const app = express();
 const config = require('./server/config/key');
+const bodyParser = require('body-parser');
+const { User } = require('./server/models/User');
+
+// body parser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// reigiter
+app.post('/register', (req, res) => {
+  const user = new User(req.body);
+
+  user.save((err, doc) => {
+    if (err) return res.json({ success: false, err });
+    return res.status(200).json({
+      success: true,
+    });
+  });
+});
 
 // mongoDB connection
 const mongoose = require('mongoose');
