@@ -26,7 +26,7 @@ mongoose
 // express connection
 const port = 5000;
 
-app.get('/', (req, res) => res.send('Hello world'));
+app.get('/api/hello', (req, res) => res.send('Hello world'));
 
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
