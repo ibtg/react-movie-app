@@ -16,8 +16,6 @@ router.get('/logout', auth, (req, res) => {
 
 // Auth
 router.get('/auth', auth, (req, res) => {
-  if (err) return res.status(400).send(err);
-
   // role == 0 : user
   // role !== 0 : admin
   res.status(200).json({
