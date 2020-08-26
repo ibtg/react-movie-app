@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 function LandingPage() {
   useEffect(() => {
@@ -8,4 +9,4 @@ function LandingPage() {
   return <div>LandingPage</div>;
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);
