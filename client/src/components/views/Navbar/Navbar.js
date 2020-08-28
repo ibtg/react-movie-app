@@ -50,9 +50,9 @@ function Navbar(props) {
         </a>
         <input className="navbar__input" placeholder="Search keywords"></input>
         <div className="navbar__control">
-          <a href="/" onClick={onSignOutHandler}>
-            Sign Out
-          </a>
+          <button className="navbar__button" onClick={onSignOutHandler}>
+            <a href="/">Sign Out</a>
+          </button>
         </div>
       </nav>
     );
