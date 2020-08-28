@@ -21,8 +21,7 @@ function Navbar(props) {
   const onClickVisible = () => {
     visible === true ? setVisible(false) : setVisible(true);
   };
-  // if (user.userData && !user.userData.isAuth)
-  console.log('user.userData: ', user.userData);
+  // console.log('user.userData: ', user.userData);
 
   // Sign Out State
   if (user.userData && !user.userData.isAuth) {
