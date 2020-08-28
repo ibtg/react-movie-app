@@ -31,10 +31,14 @@ function Navbar(props) {
         <a href="/" className="navbar__title">
           TMDB
         </a>
-
+        <input className="navbar__input" placeholder="Search keywords"></input>
         <div className="navbar__control">
-          <a href="/login">Sign In</a>
-          <a href="/register">Sign Up</a>
+          <button className="navbar__button">
+            <a href="/login">Sign In</a>
+          </button>
+          <button className="navbar__button">
+            <a href="/register">Sign Up</a>
+          </button>
         </div>
       </nav>
     );
@@ -45,6 +49,7 @@ function Navbar(props) {
         <a href="/" className="navbar__title">
           TMDB
         </a>
+        <input className="navbar__input" placeholder="Search keywords"></input>
         <div className="navbar__control">
           <a href="/" onClick={onSignOutHandler}>
             Sign Out

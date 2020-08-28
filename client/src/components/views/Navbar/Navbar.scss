@@ -6,7 +6,51 @@ a {
 .navbar__container {
   display: flex;
   width: 100%;
-  justify-content: space-between;
   height: 80px;
   align-items: center;
+  position: fixed;
+
+  .navbar__title {
+    height: 28px;
+    text-align: center;
+    width: 100px;
+  }
+  .navbar__input {
+    width: 100%;
+    font-size: 14px;
+    line-height: 20px;
+    height: 32px;
+    border-radius: 24px;
+    border: 2px solid rgb(239, 239, 239);
+    outline: none;
+    color: #333;
+  }
+
+  .navbar__input:focus {
+    outline: none;
+  }
+
+  .navbar__control {
+    height: 40px;
+    display: flex;
+    margin-right: 12px;
+  }
+  .navbar__button {
+    width: 70px;
+    border-radius: 24px;
+    margin-left: 8px;
+    text-align: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s ease-in;
+
+    &:hover {
+      background-color: #1ca8ed;
+
+      & > a {
+        color: #fff;
+      }
+    }
+  }
 }
