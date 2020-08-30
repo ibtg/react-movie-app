@@ -3,13 +3,6 @@ import { IMAGE_BASE_URL } from '../../Config';
 import './MovieInfo.scss';
 
 function MovieInfo(props) {
-  console.log(props.movieInfo);
-  console.log(props.movieInfo.genres);
-  console.log(props.movieInfo.genres[0]);
-  console.log(props.movieInfo.genres[0].name);
-
-  props.movieInfo.genres.map((movie, index) => console.log(movie.name));
-
   return (
     <div className="movieInfo__container">
       <img

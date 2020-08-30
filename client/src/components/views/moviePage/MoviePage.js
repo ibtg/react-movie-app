@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
 import MovieInfo from './MovieInfo';
-import Grid from '../Grid/Grid';
+import MovieActor from './MovieActor';
 
 function MoviePage(props) {
   let movieId = props.match.params.movieId;
@@ -27,12 +27,13 @@ function MoviePage(props) {
       });
   }, []);
 
-  console.log('Movie: ', Movie);
+  // console.log('Movie: ', Movie);
   // console.log('Casts: ', Casts);
 
   return (
     <Fragment>
       {Movie.length !== 0 && <MovieInfo movieInfo={Movie}></MovieInfo>}
+      {Casts.length !== 0 && <MovieActor castInfo={Casts}></MovieActor>}
     </Fragment>
   );
 }
