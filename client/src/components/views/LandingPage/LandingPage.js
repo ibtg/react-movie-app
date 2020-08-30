@@ -24,13 +24,13 @@ function LandingPage(props) {
       });
   };
 
-  console.log('MOVIES: ', Movies);
+  // console.log('MOVIES: ', Movies);
   const onClickHandler = () => {};
-
+  console.log('Movies: ', Movies);
   return (
     <Fragment>
       <h2 className="movie__category">Popular Movie Lists</h2>
-      {Movies && <Grid movies={Movies}></Grid>}
+      {Movies.length !== 0 && <Grid movies={Movies}></Grid>}
     </Fragment>
     // <section>
     //   {Movies &&

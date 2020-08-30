@@ -3,7 +3,7 @@ import './Grid.scss';
 import { IMAGE_BASE_URL } from '../../Config';
 
 function Grid(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <section className="grid__container">
       {props.movies.map((movie, index) => (
