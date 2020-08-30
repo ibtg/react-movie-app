@@ -27,11 +27,13 @@ function MoviePage(props) {
       });
   }, []);
 
-  // console.log('Movie: ', Movie);
+  console.log('Movie: ', Movie);
   // console.log('Casts: ', Casts);
 
   return (
-    <Fragment>{Movie && <MovieInfo movieInfo={Movie}></MovieInfo>}</Fragment>
+    <Fragment>
+      {Movie.length !== 0 && <MovieInfo movieInfo={Movie}></MovieInfo>}
+    </Fragment>
   );
 }
 
