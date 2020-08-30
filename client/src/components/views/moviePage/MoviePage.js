@@ -7,6 +7,7 @@ function MoviePage(props) {
   let movieId = props.match.params.movieId;
   const [Movie, setMovie] = useState([]);
   const [Casts, setCasts] = useState([]);
+  const [Director, setDirector] = useState('');
 
   useEffect(() => {
     let endpointCrew = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
@@ -24,6 +25,7 @@ function MoviePage(props) {
       .then((response) => {
         //console.log('response for Crew', response);
         setCasts(response.cast);
+        setDirector(response.crew[0]);
       });
   }, []);
 
@@ -33,7 +35,9 @@ function MoviePage(props) {
   return (
     <Fragment>
       {Movie.length !== 0 && <MovieInfo movieInfo={Movie}></MovieInfo>}
-      {Casts.length !== 0 && <MovieActor castInfo={Casts}></MovieActor>}
+      {Casts.length !== 0 && (
+        <MovieActor castInfo={Casts} directorInfo={Director}></MovieActor>
+      )}
     </Fragment>
   );
 }

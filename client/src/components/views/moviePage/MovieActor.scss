@@ -1,0 +1,53 @@
+.actors__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.actors {
+  display: flex;
+  position: relative;
+  top: 150px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.actor_link {
+  position: relative;
+}
+.actor__item {
+  position: relative;
+  width: 100px;
+  height: 150px;
+  display: flex;
+  margin-left: 8px;
+}
+
+.actor__item .actor__name {
+  position: absolute;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  max-width: 150px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  bottom: 8px;
+  opacity: 0;
+  transition: 0.3s all ease-in;
+}
+.actor__item:hover .actor__name {
+  opacity: 1;
+}
+
+.actors__container > h4 {
+  position: relative;
+  top: 150px;
+}
+.actors__image {
+  width: 100px;
+  height: 150px;
+  border-radius: 8px;
+}
