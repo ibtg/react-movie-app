@@ -9,6 +9,10 @@ a {
   height: 80px;
   align-items: center;
   position: fixed;
+  background-color: #fff;
+  z-index: 2;
+  opacity: 0.9;
+  top: 0;
 
   .navbar__title {
     height: 28px;
