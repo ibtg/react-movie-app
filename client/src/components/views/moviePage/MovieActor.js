@@ -7,7 +7,7 @@ import { Fragment } from 'react';
 // gradient images, add event listenr , useEffect -> useSate number
 function MovieActor(props) {
   // console.log(props.castInfo);
-  console.log(props.directorInfo);
+  //console.log(props.directorInfo);
   return (
     <div className="actors__container">
       <h4>DIRETOR / MAIN ACTORS</h4>
@@ -33,7 +33,7 @@ function MovieActor(props) {
         {props.castInfo.map(
           (actor, index) =>
             index <= 6 && (
-              <div className="actor__item">
+              <div className="actor__item" key={index}>
                 <a
                   className="actor__link"
                   href={`http://google.com/search?q=${actor.name}`}
