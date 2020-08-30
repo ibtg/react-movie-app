@@ -9,7 +9,6 @@
 .actors {
   display: flex;
   position: relative;
-  top: 150px;
   justify-content: center;
   margin-bottom: 18px;
 }
@@ -42,10 +41,6 @@
   opacity: 1;
 }
 
-.actors__container > h4 {
-  position: relative;
-  top: 150px;
-}
 .actors__image {
   width: 100px;
   height: 150px;

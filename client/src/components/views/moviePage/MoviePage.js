@@ -33,12 +33,12 @@ function MoviePage(props) {
   // console.log('Casts: ', Casts);
 
   return (
-    <Fragment>
+    <section style={{ backgroundColor: 'rgb(240, 240, 240)', top: '80px' }}>
       {Movie.length !== 0 && <MovieInfo movieInfo={Movie}></MovieInfo>}
       {Casts.length !== 0 && (
         <MovieActor castInfo={Casts} directorInfo={Director}></MovieActor>
       )}
-    </Fragment>
+    </section>
   );
 }
 
