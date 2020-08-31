@@ -12,3 +12,25 @@
 .movieInfo__image {
   margin-right: 20px;
 }
+
+.movieInfo__title {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 300;
+  // color: rgba(255, 255, 255, 0.65);
+  // color: #fff;
+}
+
+.movieInfo__genres {
+  margin: 18px 0;
+  display: block;
+}
+.movieInfo__overview {
+  // color: rgba(255, 255, 255, 0.95);
+  font-size: 24px;
+  margin: 18px 0;
+}
+
+.movieInfo__contents div {
+  margin-bottom: 18px;
+}

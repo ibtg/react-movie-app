@@ -15,13 +15,16 @@ function MovieInfo(props) {
         alt={props.movieInfo.title}
       />
       <div className="movieInfo__contents">
-        <h3>{props.movieInfo.title}</h3>
-        <p>{props.movieInfo.overview}</p>
+        <h3 className="movieInfo__title">{props.movieInfo.title}</h3>
+        <span className="movieInfo__genres">
+          Genres:
+          {props.movieInfo.genres.map((movie, index) => (
+            <span key={index}> {movie.name}</span>
+          ))}
+        </span>
         <div>Running Time: {props.movieInfo.runtime}</div>
         <div>Release Date: {props.movieInfo.release_date}</div>
-        {props.movieInfo.genres.map((movie, index) => (
-          <span key={index}>{movie.name}</span>
-        ))}
+        <p className="movieInfo__overview">{props.movieInfo.overview}</p>
       </div>
     </div>
   );
