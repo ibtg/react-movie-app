@@ -12,7 +12,7 @@ function App() {
   return (
     <Suspense fallback={<div>Loaidng</div>}>
       <Router>
-        <Navbar></Navbar>
+        {/* <Navbar></Navbar> */}
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)}></Route>
           <Route exact path="/login" component={Auth(LoginPage, false)}></Route>
