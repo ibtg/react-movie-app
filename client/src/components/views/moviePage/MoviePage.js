@@ -2,6 +2,7 @@ import React, { useEffect, useState, Fragment } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
 import MovieInfo from './MovieInfo';
 import MovieActor from './MovieActor';
+import Like from './Like';
 
 function MoviePage(props) {
   let movieId = props.match.params.movieId;
@@ -34,6 +35,11 @@ function MoviePage(props) {
 
   return (
     <section style={{ backgroundColor: 'rgb(240, 240, 240)', top: '80px' }}>
+      <Like
+        movieInfo={Movie}
+        movieId={movieId}
+        userFrom={localStorage.getItem('userId')}
+      ></Like>
       {Movie.length !== 0 && <MovieInfo movieInfo={Movie}></MovieInfo>}
       {Casts.length !== 0 && (
         <MovieActor castInfo={Casts} directorInfo={Director}></MovieActor>
