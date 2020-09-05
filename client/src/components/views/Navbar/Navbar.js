@@ -7,9 +7,9 @@ import Grid from '../Grid/Grid';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
 
 function Navbar(props) {
-  // const [visible, setVisible] = useState(false);
   const user = useSelector((state) => state.user);
   const [Search, setSearch] = useState('');
+
   const onSignOutHandler = () => {
     axios.get('/api/users/logout').then((response) => {
       if (response.status === 200) {
@@ -21,34 +21,14 @@ function Navbar(props) {
     });
   };
 
-  // const onClickVisible = () => {
-  //   visible === true ? setVisible(false) : setVisible(true);
-  // };
-
   const onInputChange = (event) => {
     setSearch(event.target.value);
   };
 
-  // const onInputSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log(Search);
-
-  //   const endpoint = `${API_URL}search/movie?api_key=${API_KEY}&languate=en-US&query=${Search}&page=1`;
-  //   console.log(endpoint);
-
-  //   const fetchMovies = (endpoint) => {
-  //     fetch(endpoint)
-  //       .then((response) => response.json())
-  //       .then((response) => {
-  //         // console.log('movie response: ', response);
-  //         setMovies([...Movies, ...response.results]);
-  //         // console.log('page: ', response.page);
-  //         setCurrentPage(response.page + 1);
-  //         // console.log('page: ', CurrentPage);
-  //       });
-  //   };
-  // };
-  // console.log('user.userData: ', user.userData);
+  const onInputSubmit = (event) => {
+    event.preventDefault();
+    props.history.push(`/search/${Search}`);
+  };
 
   // Sign Out State
   if (user.userData && !user.userData.isAuth) {
@@ -57,9 +37,8 @@ function Navbar(props) {
         <a href="/" className="navbar__title">
           TMDB
         </a>
-        <form onSubmit={props.onInputSubmit} className="navbar__form">
+        <form onSubmit={onInputSubmit} className="navbar__form">
           <input
-            // type="submit"
             className="navbar__input"
             placeholder=" Search keywords"
             value={Search}
@@ -84,9 +63,8 @@ function Navbar(props) {
         <a href="/" className="navbar__title">
           TMDB
         </a>
-        <form onSubmit={props.onInputSubmit} className="navbar__form">
+        <form onSubmit={onInputSubmit} className="navbar__form">
           <input
-            // type="submit"
             className="navbar__input"
             placeholder=" Search keywords"
             value={Search}

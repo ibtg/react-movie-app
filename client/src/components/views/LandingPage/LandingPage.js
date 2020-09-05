@@ -46,7 +46,6 @@ function LandingPage(props) {
 
   return (
     <div className="re">
-      <Navbar onInputSubmit={onInputSubmit}></Navbar>
       <h2 className="movie__category">Popular Movie Lists</h2>
       {Movies.length !== 0 && <Grid movies={Movies}></Grid>}
       {visible && (

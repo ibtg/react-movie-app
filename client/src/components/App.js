@@ -8,12 +8,13 @@ import Auth from '../hoc/auth';
 import Navbar from './views/Navbar/Navbar';
 import MoviePage from './views/moviePage/MoviePage';
 import LikePage from './views/LikePage/LikePage';
+import SearchMovie from './views/SearchMovie/SearchMovie';
 
 function App() {
   return (
     <Suspense fallback={<div>Loaidng</div>}>
       <Router>
-        {/* <Navbar></Navbar> */}
+        <Navbar></Navbar>
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)}></Route>
           <Route exact path="/login" component={Auth(LoginPage, false)}></Route>
@@ -27,7 +28,12 @@ function App() {
             path="/movie/:movieId"
             component={Auth(MoviePage, null)}
           ></Route>
-          <Route exct path="/like" component={Auth(LikePage, true)}></Route>
+          <Route exact path="/like" component={Auth(LikePage, true)}></Route>
+          <Route
+            exact
+            path="/search/:movieTitle"
+            component={Auth(SearchMovie, null)}
+          ></Route>
         </Switch>
       </Router>
     </Suspense>
