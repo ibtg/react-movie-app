@@ -13,7 +13,8 @@ function Navbar(props) {
   const onSignOutHandler = () => {
     axios.get('/api/users/logout').then((response) => {
       if (response.status === 200) {
-        props.history.push('/login');
+        localStorage.removeItem('userId');
+        props.history.push('/');
       } else {
         alert('Sign Out Failed');
       }
@@ -93,6 +94,9 @@ function Navbar(props) {
           ></input>
         </form>
         <div className="navbar__control">
+          <button className="navbar__button">
+            <a href="/favorite">My Page</a>
+          </button>
           <button className="navbar__button" onClick={onSignOutHandler}>
             <a href="/">Sign Out</a>
           </button>
