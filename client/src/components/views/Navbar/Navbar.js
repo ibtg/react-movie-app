@@ -95,7 +95,7 @@ function Navbar(props) {
         </form>
         <div className="navbar__control">
           <button className="navbar__button">
-            <a href="/favorite">My Page</a>
+            <a href="/like">My Page</a>
           </button>
           <button className="navbar__button" onClick={onSignOutHandler}>
             <a href="/">Sign Out</a>
