@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { registerUser } from '../../../_actions/user_action';
+import './RegisterPage.scss';
 
 function RegisterPage(props) {
   const dispatch = useDispatch();
@@ -48,36 +49,50 @@ function RegisterPage(props) {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmitHandler}>
-        <label htmlFor="Email">Email</label>
+    <div className="register__page">
+      <form className="register__form" onSubmit={onSubmitHandler}>
+        <label htmlFor="Email"></label>
         <input
+          className="register__input"
           type="email"
           id="Email"
           value={Email}
           onChange={onEmailHandler}
+          placeholder="Email"
         />
 
-        <label htmlFor="Name">Name</label>
-        <input type="text" id="Name" value={Name} onChange={onNameHandler} />
-
-        <label htmlFor="Password">Password</label>
+        <label htmlFor="Name"></label>
         <input
+          className="register__input"
+          type="text"
+          id="Name"
+          value={Name}
+          onChange={onNameHandler}
+          placeholder="Name"
+        />
+
+        <label htmlFor="Password"></label>
+        <input
+          className="register__input"
           type="password"
           id="Password"
           value={Password}
           onChange={onPasswordHandler}
+          placeholder="Password (8-character minumum)"
         />
 
-        <label htmlFor="Confirm">Confirm Password</label>
+        <label htmlFor="Confirm"></label>
         <input
+          className="register__input"
           type="password"
           id="Confirm"
           value={ConfirmPassword}
           onChange={onConfirmPasswordHandler}
+          placeholder="Confirm Password"
         />
-
-        <button type="submit">Sign Up</button>
+        <button className="register__button" type="submit">
+          Sign Up
+        </button>
       </form>
     </div>
   );
