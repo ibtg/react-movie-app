@@ -1,10 +1,9 @@
 import React from 'react';
 import { IMAGE_BASE_URL } from '../../Config';
 import './MovieInfo.scss';
-import NoImage from '../utils/NoImage';
 
 function MovieInfo(props) {
-  console.log('Movie Info: ', props.movieInfo.poster_path);
+  console.log('info: ', props);
   return (
     <div className="movieInfo__container">
       {props.movieInfo.poster_path ? (
@@ -23,8 +22,15 @@ function MovieInfo(props) {
             <span key={index}> {movie.name}</span>
           ))}
         </span>
-        <div>Running Time: {props.movieInfo.runtime}</div>
-        <div>Release Date: {props.movieInfo.release_date}</div>
+        <div className="movieInfo__sub">
+          Running Time: {props.movieInfo.runtime} min
+        </div>
+        <div className="movieInfo__sub">
+          Release Date: {props.movieInfo.release_date}
+        </div>
+        <div className="movieInfo__sub">
+          Vote Average: {props.movieInfo.vote_average}
+        </div>
         <p className="movieInfo__overview">{props.movieInfo.overview}</p>
       </div>
     </div>
