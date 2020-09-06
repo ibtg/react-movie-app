@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
 import Grid from '../Grid/Grid';
+import './SearchMovie.scss';
 
 function SearchMovie(props) {
   const [Movies, setMovies] = useState([]);
@@ -19,7 +20,11 @@ function SearchMovie(props) {
       });
   };
 
-  return <div>{Movies.length !== 0 && <Grid movies={Movies}></Grid>}</div>;
+  return (
+    <div className="search__container">
+      {Movies.length !== 0 && <Grid movies={Movies}></Grid>}
+    </div>
+  );
 }
 
 export default withRouter(SearchMovie);
