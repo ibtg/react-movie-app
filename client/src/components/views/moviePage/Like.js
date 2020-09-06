@@ -7,7 +7,7 @@ function Like(props) {
   const movieId = props.movieId;
   const userFrom = props.userFrom;
   const movieTitle = props.movieInfo.title;
-  const moviePost = props.movieInfo.backdrop_path;
+  const moviePost = props.movieInfo.poster_path;
   const movieRunTime = props.movieInfo.runtime;
 
   const [LikedNumber, setLikedNumber] = useState(0);
@@ -32,7 +32,6 @@ function Like(props) {
 
     Axios.post('/api/like/liked', variables).then((response) => {
       if (response.data.success) {
-        console.log('like me: ', response.data);
         setLiked(response.data.liked);
       } else {
         alert('Faild to get information');
@@ -41,7 +40,6 @@ function Like(props) {
   }, []);
 
   const onClickLiked = () => {
-    console.log('click: ', userFrom);
     if (userFrom === null) {
       alert('Please Sign In First');
       return;
