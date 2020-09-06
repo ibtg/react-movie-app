@@ -1,9 +1,10 @@
 import React from 'react';
 import './NoImage.scss';
-function NoImage() {
+function NoImage(props) {
   return (
     <div className="noImage">
-      No<br></br>Image
+      <div>No Image</div>
+      <div>{props.name}</div>
     </div>
   );
 }

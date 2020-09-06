@@ -3,9 +3,14 @@
   height: 100%;
   border-radius: 8px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 32px;
   text-align: center;
   color: #c0c0c0;
+
+  & > div:first-child {
+    margin-bottom: 18px;
+  }
 }

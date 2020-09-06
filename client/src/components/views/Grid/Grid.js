@@ -15,7 +15,7 @@ function Grid(props) {
               alt={movie.title}
             />
           ) : (
-            <NoImage></NoImage>
+            <NoImage name={movie.title}></NoImage>
           )}
         </a>
       ))}
