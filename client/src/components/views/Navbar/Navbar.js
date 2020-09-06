@@ -5,6 +5,7 @@ import axios from 'axios';
 import './Navbar.scss';
 import Grid from '../Grid/Grid';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
+import { BiMovie } from 'react-icons/bi';
 
 function Navbar(props) {
   const user = useSelector((state) => state.user);
@@ -35,12 +36,13 @@ function Navbar(props) {
     return (
       <nav className="navbar__container">
         <a href="/" className="navbar__title">
-          TMDB
+          <BiMovie></BiMovie>
+          <span>TMDB</span>
         </a>
         <form onSubmit={onInputSubmit} className="navbar__form">
           <input
             className="navbar__input"
-            placeholder=" Search keywords"
+            placeholder="Search keywords"
             value={Search}
             onChange={onInputChange}
           ></input>
@@ -61,7 +63,8 @@ function Navbar(props) {
     return (
       <nav className="navbar__container">
         <a href="/" className="navbar__title">
-          TMDB
+          <BiMovie></BiMovie>
+          <span>TMDB</span>
         </a>
         <form onSubmit={onInputSubmit} className="navbar__form">
           <input
