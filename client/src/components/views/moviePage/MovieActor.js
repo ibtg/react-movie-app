@@ -9,7 +9,7 @@ function MovieActor(props) {
   console.log('directorInfo', props.directorInfo.profile_path);
   return (
     <div className="actors__container">
-      <h4>DIRETOR / MAIN ACTORS</h4>
+      <h4>DIRETOR / STARRING ACTORS</h4>
       <div className="actors">
         <div className="actor__item">
           <a
@@ -27,11 +27,14 @@ function MovieActor(props) {
               <NoImage></NoImage>
             )}
           </a>
-          <span className="actor__name">{props.directorInfo.name}</span>
+          <span className="actor__name">
+            <span> {props.directorInfo.name}</span>
+            <span>Director</span>
+          </span>
         </div>
         {props.castInfo.map(
           (actor, index) =>
-            index <= 6 && (
+            index <= 8 && (
               <div className="actor__item" key={index}>
                 <a
                   className="actor__link"
