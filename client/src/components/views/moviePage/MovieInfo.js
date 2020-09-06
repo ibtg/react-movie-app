@@ -13,9 +13,7 @@ function MovieInfo(props) {
           src={`${IMAGE_BASE_URL}w300${props.movieInfo.poster_path}`}
           alt={props.movieInfo.title}
         />
-      ) : (
-        <NoImage></NoImage>
-      )}
+      ) : null}
 
       <div className="movieInfo__contents">
         <h3 className="movieInfo__title">{props.movieInfo.title}</h3>
