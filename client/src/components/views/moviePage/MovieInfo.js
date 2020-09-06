@@ -1,19 +1,22 @@
 import React from 'react';
 import { IMAGE_BASE_URL } from '../../Config';
 import './MovieInfo.scss';
+import NoImage from '../utils/NoImage';
 
 function MovieInfo(props) {
+  console.log('Movie Info: ', props.movieInfo.poster_path);
   return (
     <div className="movieInfo__container">
-      <img
-        className="movieInfo__image"
-        src={
-          props.movieInfo.poster_path
-            ? `${IMAGE_BASE_URL}w300${props.movieInfo.poster_path}`
-            : 'No Image'
-        }
-        alt={props.movieInfo.title}
-      />
+      {props.movieInfo.poster_path ? (
+        <img
+          className="movieInfo__image"
+          src={`${IMAGE_BASE_URL}w300${props.movieInfo.poster_path}`}
+          alt={props.movieInfo.title}
+        />
+      ) : (
+        <NoImage></NoImage>
+      )}
+
       <div className="movieInfo__contents">
         <h3 className="movieInfo__title">{props.movieInfo.title}</h3>
         <span className="movieInfo__genres">
