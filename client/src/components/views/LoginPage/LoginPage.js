@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
 import { withRouter } from 'react-router-dom';
+import './LoginPage.scss';
 
 function LoginPage(props) {
   const dispatch = useDispatch();
@@ -35,15 +36,31 @@ function LoginPage(props) {
   };
 
   return (
-    <div>
-      <form action="" onSubmit={onSubmitHandler}>
-        <label htmlFor="">Email</label>
-        <input type="email" value={Email} onChange={onEmailHandler} />
+    <div className="login__page">
+      <form className="login__form" onSubmit={onSubmitHandler}>
+        <label htmlFor="Email"></label>
+        <input
+          className="login__email"
+          id="Email"
+          type="email"
+          value={Email}
+          onChange={onEmailHandler}
+          placeholder="Email"
+        />
 
-        <label htmlFor="">Password</label>
-        <input type="password" value={Password} onChange={onPasswordHandler} />
+        <label htmlFor="Password"></label>
+        <input
+          className="login__password"
+          id="Password"
+          type="password"
+          value={Password}
+          onChange={onPasswordHandler}
+          placeholder="Password"
+        />
 
-        <button type="submit">Login</button>
+        <button className="login__button" type="submit">
+          Login
+        </button>
       </form>
     </div>
   );
