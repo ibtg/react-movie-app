@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import './Like.scss';
+import { AiOutlineLike, AiFillLike } from 'react-icons/ai';
 
 function Like(props) {
   const movieId = props.movieId;
@@ -58,9 +59,7 @@ function Like(props) {
     } else {
       Axios.post('/api/like/addToLike', variables).then((response) => {
         if (response.data.success) {
-          console.log('add to like: ', response);
           setLikedNumber(LikedNumber + 1);
-          console.log('Liked number: ', LikedNumber);
           setLiked(!Liked);
         } else {
           alert('Failed to add Like list');
@@ -69,13 +68,12 @@ function Like(props) {
     }
   };
 
-  // 좋아하는지, -> 별 모양으로
   return (
     <div className="like__container">
-      <button onClick={onClickLiked}>
-        {Liked ? ' Not Liked' : 'Add to Liked '}
+      <button className="like__button" onClick={onClickLiked}>
+        {Liked ? <AiFillLike></AiFillLike> : <AiOutlineLike></AiOutlineLike>}
       </button>
-      <span>Like : {LikedNumber}</span>
+      <span>{LikedNumber}</span>
     </div>
   );
 }
