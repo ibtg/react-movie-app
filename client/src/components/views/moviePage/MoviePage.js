@@ -24,9 +24,14 @@ function MoviePage(props) {
     fetch(endpointCrew)
       .then((response) => response.json())
       .then((response) => {
-        //console.log('response for Crew', response);
-        setCasts(response.cast);
-        setDirector(response.crew[0]);
+        console.log('response for Crew', response);
+        {
+          response.cast ? setCasts(response.cast) : setCasts('undefined');
+        }
+
+        response.crew.length === 0
+          ? setDirector([{ name: 'undefined', profile_path: null }])
+          : setDirector(response.crew[0]);
       });
   }, []);
 
