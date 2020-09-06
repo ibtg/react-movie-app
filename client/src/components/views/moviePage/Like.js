@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
+import './Like.scss';
 
 function Like(props) {
   const movieId = props.movieId;
@@ -19,8 +20,6 @@ function Like(props) {
   };
 
   useEffect(() => {
-    // data 가져올 때는 get 쓴다 -> get으로 수정 ?
-    // 얼마나 많은 사랆들이 이 영화를 like 리스트에 넣었는지
     Axios.post('/api/like/likeNumber', variables).then((response) => {
       if (response.data.success) {
         setLikedNumber(response.data.likeNumber);
@@ -41,6 +40,12 @@ function Like(props) {
   }, []);
 
   const onClickLiked = () => {
+    console.log('click: ', userFrom);
+    if (userFrom === null) {
+      alert('Please Sign In First');
+      return;
+    }
+
     if (Liked) {
       Axios.post('/api/like/removeFromLiked', variables).then((response) => {
         if (response.data.success) {
@@ -66,7 +71,7 @@ function Like(props) {
 
   // 좋아하는지, -> 별 모양으로
   return (
-    <div>
+    <div className="like__container">
       <button onClick={onClickLiked}>
         {Liked ? ' Not Liked' : 'Add to Liked '}
       </button>
