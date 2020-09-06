@@ -1,22 +1,22 @@
 import React from 'react';
 import './Grid.scss';
 import { IMAGE_BASE_URL } from '../../Config';
+import NoImage from '../utils/NoImage';
 
 function Grid(props) {
-  // console.log(props);
   return (
     <section className="grid__container">
       {props.movies.map((movie, index) => (
         <a className="grid__item" href={`/movie/${movie.id}`} key={index}>
-          <img
-            className="grid__images"
-            src={
-              movie.poster_path
-                ? `${IMAGE_BASE_URL}w300${movie.poster_path}`
-                : 'No Images'
-            }
-            alt={movie.title}
-          />
+          {movie.poster_path ? (
+            <img
+              className="grid__images"
+              src={`${IMAGE_BASE_URL}w300${movie.poster_path}`}
+              alt={movie.title}
+            />
+          ) : (
+            <NoImage></NoImage>
+          )}
         </a>
       ))}
     </section>
