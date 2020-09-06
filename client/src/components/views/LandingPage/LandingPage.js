@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
+import { API_URL, API_KEY } from '../../Config';
 import Grid from '../Grid/Grid';
 import './LandingPage.scss';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import Navbar from '../Navbar/Navbar';
 
 function LandingPage(props) {
   const [Movies, setMovies] = useState([]);
@@ -33,20 +32,9 @@ function LandingPage(props) {
     return response;
   };
 
-  const onInputSubmit = (event) => {
-    event.preventDefault();
-    console.log(event.target.querySelector('input').value);
-    const searchKeyword = event.target.querySelector('input').value;
-    const endpoint = `${API_URL}search/movie?api_key=${API_KEY}&languate=en-US&query=${searchKeyword}&page=1`;
-    fetchMovies(endpoint).then((response) => {
-      setMovies([...response.results]);
-    });
-    setVisible(false);
-  };
-
   return (
-    <div className="re">
-      <h2 className="movie__category">Popular Movie Lists</h2>
+    <div className="container">
+      {/* <h2 className="movie__category">Popular Movie Lists</h2> */}
       {Movies.length !== 0 && <Grid movies={Movies}></Grid>}
       {visible && (
         <div className="movie__buttonContainer">

@@ -1,3 +1,7 @@
+.container {
+  background-color: #f1f1f1;
+}
+
 .movie__category {
   position: relative;
   top: 100px;
@@ -9,7 +13,7 @@
   height: 60px;
   background-color: rgba(240, 240, 240, 0.4);
   position: relative;
-  transform: translateY(90%);
+  transform: translateY(20px);
   display: flex;
   align-items: center;
   bottom: 0;
