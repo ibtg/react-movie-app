@@ -1,8 +1,9 @@
-import React, { useEffect, useState, Fragment } from 'react';
-import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
+import React, { useEffect, useState } from 'react';
+import { API_URL, API_KEY } from '../../Config';
 import MovieInfo from './MovieInfo';
 import MovieActor from './MovieActor';
 import Like from './Like';
+import './MoviePage.scss';
 
 function MoviePage(props) {
   let movieId = props.match.params.movieId;
@@ -17,29 +18,21 @@ function MoviePage(props) {
     fetch(endpointInfo)
       .then((response) => response.json())
       .then((response) => {
-        // console.log('response', response);
         setMovie(response);
       });
 
     fetch(endpointCrew)
       .then((response) => response.json())
       .then((response) => {
-        console.log('response for Crew', response);
-        {
-          response.cast ? setCasts(response.cast) : setCasts('undefined');
-        }
-
+        response.cast ? setCasts(response.cast) : setCasts('undefined');
         response.crew.length === 0
           ? setDirector([{ name: 'undefined', profile_path: null }])
           : setDirector(response.crew[0]);
       });
   }, []);
 
-  // console.log('Movie: ', Movie);
-  // console.log('Casts: ', Casts);
-
   return (
-    <section style={{ backgroundColor: 'rgb(240, 240, 240)', top: '80px' }}>
+    <section className="moviePage__container">
       <Like
         movieInfo={Movie}
         movieId={movieId}
