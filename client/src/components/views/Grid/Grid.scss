@@ -14,8 +14,14 @@
   border-radius: 8px;
   width: 100%;
   justify-self: center;
+  animation: fadeIn 0.6s ease-in;
 }
 
-.grid__item {
-  display: block;
+@keyframes fadeIn {
+  from {
+    opacity: 0.75;
+  }
+  to {
+    opacity: 1;
+  }
 }
