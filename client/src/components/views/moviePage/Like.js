@@ -24,7 +24,6 @@ function Like(props) {
     Axios.post('/api/like/likeNumber', variables).then((response) => {
       if (response.data.success) {
         setLikedNumber(response.data.likeNumber);
-        console.log('like: ', response.data);
       } else {
         alert('Faild to get information');
       }
