@@ -3,7 +3,6 @@ import { IMAGE_BASE_URL } from '../../Config';
 import './MovieInfo.scss';
 
 function MovieInfo(props) {
-  console.log('info: ', props);
   return (
     <div className="movieInfo__container">
       {props.movieInfo.poster_path ? (
