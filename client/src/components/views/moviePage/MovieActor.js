@@ -3,10 +3,7 @@ import { IMAGE_BASE_URL } from '../../Config';
 import './MovieActor.scss';
 import NoImage from '../utils/NoImage';
 
-// gradient images, add event listenr , useEffect -> useSate number
 function MovieActor(props) {
-  console.log('props: ', props);
-  console.log('directorInfo', props.directorInfo.profile_path);
   return (
     <div className="actors__container">
       <h4>DIRETOR / STARRING ACTORS</h4>
