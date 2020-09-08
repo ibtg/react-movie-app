@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import './Navbar.scss';
-import Grid from '../Grid/Grid';
-import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
 import { BiMovie } from 'react-icons/bi';
 
 function Navbar(props) {
@@ -87,4 +85,4 @@ function Navbar(props) {
   }
 }
 
-export default withRouter(Navbar);
+export default Navbar;

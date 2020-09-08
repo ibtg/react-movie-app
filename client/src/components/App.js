@@ -14,8 +14,8 @@ import PageNotFound from './views/utils/PageNotFound';
 function App() {
   return (
     <Suspense fallback={<div>Loaidng</div>}>
+      <Navbar></Navbar>
       <Router>
-        <Navbar></Navbar>
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)}></Route>
           <Route exact path="/login" component={Auth(LoginPage, false)}></Route>
