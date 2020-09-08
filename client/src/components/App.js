@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import LandingPage from './views/LandingPage/LandingPage';
 import LoginPage from './views/LoginPage/LoginPage';
 import RegisterPage from './views/RegisterPage/RegisterPage';
@@ -15,29 +15,27 @@ function App() {
   return (
     <Suspense fallback={<div>Loaidng</div>}>
       <Navbar></Navbar>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Auth(LandingPage, null)}></Route>
-          <Route exact path="/login" component={Auth(LoginPage, false)}></Route>
-          <Route
-            exact
-            path="/register"
-            component={Auth(RegisterPage, false)}
-          ></Route>
-          <Route
-            exact
-            path="/movie/:movieId"
-            component={Auth(MoviePage, null)}
-          ></Route>
-          <Route exact path="/like" component={Auth(LikePage, true)}></Route>
-          <Route
-            exact
-            path="/search/:movieTitle"
-            component={Auth(SearchMovie, null)}
-          ></Route>
-          <Route path="/" component={PageNotFound}></Route>
-        </Switch>
-      </Router>
+      <Switch>
+        <Route exact path="/" component={Auth(LandingPage, null)}></Route>
+        <Route exact path="/login" component={Auth(LoginPage, false)}></Route>
+        <Route
+          exact
+          path="/register"
+          component={Auth(RegisterPage, false)}
+        ></Route>
+        <Route
+          exact
+          path="/movie/:movieId"
+          component={Auth(MoviePage, null)}
+        ></Route>
+        <Route exact path="/like" component={Auth(LikePage, true)}></Route>
+        <Route
+          exact
+          path="/search/:movieTitle"
+          component={Auth(SearchMovie, null)}
+        ></Route>
+        <Route path="/" component={PageNotFound}></Route>
+      </Switch>
     </Suspense>
   );
 }
