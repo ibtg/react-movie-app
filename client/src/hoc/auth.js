@@ -9,13 +9,15 @@ export default function (SpecificComponent, option, adminRoute = null) {
   // false => user who did not login
 
   function AuthenticationCheck(props) {
+    let user = useSelector((state) => state.user);
+
     const dispatch = useDispatch();
 
     useEffect(() => {
-      dispatch(auth()).then((response) => {
+      dispatch(auth()).then(async (response) => {
         console.log('auth response: ', response);
         // logout state, try to access page that allowd only for login users
-        if (!response.payload.isAuth) {
+        if (await !response.payload.isAuth) {
           if (option === true) {
             props.history.push('/login');
           }
@@ -33,7 +35,7 @@ export default function (SpecificComponent, option, adminRoute = null) {
         }
       });
     }, []);
-    return <SpecificComponent {...props}></SpecificComponent>;
+    return <SpecificComponent {...props} user={user}></SpecificComponent>;
   }
 
   return AuthenticationCheck;
