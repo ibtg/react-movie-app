@@ -4,6 +4,7 @@ const config = require('./config/key');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const path = require('path');
 
 // use cors
 app.use(cors());
