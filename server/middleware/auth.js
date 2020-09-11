@@ -3,7 +3,7 @@ const { User } = require('../models/User');
 let auth = (req, res, next) => {
   // get token from cookie
   let token = req.cookies.x_auth;
-  //console.log('auto token: ', token);
+  console.log('auto token: ', token);
 
   User.findByToken(token, (err, user) => {
     // console.log('findByToken');
