@@ -7,13 +7,25 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 
 function LandingPage(props) {
   const [Movies, setMovies] = useState([]);
-  const [CurrentPage, setCurrentPage] = useState(1);
+  const [CurrentPage, setCurrentPage] = useState(3);
 
   useEffect(() => {
-    const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&languate=en-US&page=1`;
-    fetchMovies(endpoint).then((response) => {
-      setMovies([...Movies, ...response.results]);
-      setCurrentPage(response.page + 1);
+    const endpoint1 = `${API_URL}movie/popular?api_key=${API_KEY}&languate=en-US&page=1`;
+    const results1 = fetchMovies(endpoint1).then((response) => {
+      return response.results;
+    });
+
+    const endpoint2 = `${API_URL}movie/popular?api_key=${API_KEY}&languate=en-US&page=2`;
+    const results2 = fetchMovies(endpoint2).then((response) => {
+      return response.results;
+    });
+
+    Promise.all([results1, results2]).then((results) => {
+      let resultArr = [];
+      results.map((result) => {
+        resultArr = [...resultArr, ...result];
+      });
+      setMovies([...Movies, ...resultArr]);
     });
   }, []);
 
@@ -25,8 +37,8 @@ function LandingPage(props) {
     });
   };
 
-  const fetchMovies = (endpoint) => {
-    const response = fetch(endpoint).then((response) => response.json());
+  const fetchMovies = async (endpoint) => {
+    const response = await fetch(endpoint).then((response) => response.json());
     return response;
   };
 
