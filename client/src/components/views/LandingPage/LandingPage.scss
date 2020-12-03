@@ -1,12 +1,19 @@
 .container {
-  background-color: #f1f1f1;
+  background-color: rgb(20, 21, 23);
+  // height: 100%;
+  // position: relative;
+  padding-top: 100px;
+  padding-left: 40px;
+  padding-bottom: 20px;
+  // display: flex;
+  // flex-direction: column;
 }
 
-.movie__category {
-  position: relative;
-  top: 100px;
-  text-align: center;
-}
+// .movie__category {
+//   position: relative;
+//   top: 100px;
+//   text-align: center;
+// }
 
 .movie__buttonContainer {
   width: 100%;
