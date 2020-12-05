@@ -66,6 +66,8 @@ function LandingPage(props) {
     return response;
   };
 
+  // console.log("tending:", trending)
+
 
   return (
     <div className="container">
@@ -77,26 +79,31 @@ function LandingPage(props) {
       <Display 
       pages={popularMovie} 
       title="POPULAR MOVIES"
+      type="movie"
       ></Display>
 
       <Display 
       pages={topRatedMovie} 
       title="TOP RATED MOVIES"
+      type="movie"
       ></Display>
       
       <Display 
       pages={nowPlayingMovie} 
       title="NOW PLAYING MOVIES"
+      type="movie"
       ></Display>
       
       <Display 
       pages={popularTV} 
       title="POPULAR TV SERIES"
+      type="tv"
       ></Display>
       
       <Display 
       pages={topRatedTV} 
       title="TOP RAETED TV SERIES"
+      type="tv"
       ></Display>
     </div>
   );

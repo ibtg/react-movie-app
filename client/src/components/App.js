@@ -6,7 +6,7 @@ import LoginPage from './views/LoginPage/LoginPage';
 import RegisterPage from './views/RegisterPage/RegisterPage';
 import Auth from '../hoc/auth';
 import Navbar from './views/Navbar/Navbar';
-import MoviePage from './views/moviePage/MoviePage';
+import ContentsPage from './views/contentsPage/ContentsPage';
 import LikePage from './views/LikePage/LikePage';
 import SearchMovie from './views/SearchMovie/SearchMovie';
 import PageNotFound from './views/utils/PageNotFound';
@@ -25,8 +25,8 @@ function App() {
         ></Route>
         <Route
           exact
-          path="/movie/:movieId"
-          component={Auth(MoviePage, null)}
+          path="/contents/:movieId"
+          component={Auth(ContentsPage, null)}
         ></Route>
         <Route exact path="/like" component={Auth(LikePage, true)}></Route>
         <Route
