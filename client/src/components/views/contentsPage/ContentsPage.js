@@ -67,6 +67,7 @@ const ContentsPage = () => {
         director={director}
         id={contentsId}
         poster_path={contents.poster_path}
+        type={contentsType}
       >
       </ContentsInfo>
       <div className="contentPage__recommendationContainer">
