@@ -7,18 +7,24 @@ const LikeSchema = mongoose.Schema(
       type: Schema.Types.ObjectId,
       ref: 'User',
     },
-    movieId: {
+    id: {
       type: String,
     },
-    movieTitle: {
+    title: {
       type: String,
     },
-    moviePost: {
+    poster_path: {
       type: String,
     },
     movieRunTime: {
       type: String,
     },
+    type:{
+      type:String,
+    },
+    title:{
+      type:String,
+    }
   },
   { timestamps: true }
 );

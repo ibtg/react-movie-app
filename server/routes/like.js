@@ -4,9 +4,9 @@ const { Like } = require('../models/Like');
 
 // how many people like this movie
 router.post('/likeNumber', (req, res) => {
-  req.body.movieId;
+  req.body.id;
 
-  Like.find({ movieId: req.body.movieId }).exec((err, info) => {
+  Like.find({ id: req.body.id }).exec((err, info) => {
     if (err) return res.status(400).send(err);
     res.status(200).json({ success: true, likeNumber: info.length });
   });
@@ -15,7 +15,7 @@ router.post('/likeNumber', (req, res) => {
 // whether i like this movie
 router.post('/liked', (req, res) => {
   Like.find({
-    movieId: req.body.movieId,
+    id: req.body.id,
     userFrom: req.body.userFrom,
   }).exec((err, info) => {
     if (err) return res.status(400).send(err);
@@ -32,7 +32,7 @@ router.post('/liked', (req, res) => {
 
 router.post('/removeFromLiked', (req, res) => {
   Like.findOneAndDelete({
-    movieId: req.body.movieId,
+    id: req.body.id,
     userFrom: req.body.userFrom,
   }).exec((err, doc) => {
     if (err) return res.status(400).send(err);
@@ -59,7 +59,7 @@ router.post('/getLikedMovie', (req, res) => {
 // remove movies that i like
 router.post('/removeFromLike', (req, res) => {
   Like.findOneAndDelete({
-    movieId: req.body.movieId,
+    id: req.body.id,
     userFrom: req.body.userFrom,
   }).exec((err, doc) => {
     if (err) return res.status(400).send(err);
