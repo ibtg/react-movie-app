@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {  IMAGE_BASE_URL, API_URL, API_KEY } from '../../Config';
+import { API_URL, API_KEY } from '../../Config';
 import ContentsInfo from './ContentsInfo'
 import './ContentsPage.scss';
 import {useLocation} from 'react-router-dom';
@@ -47,11 +47,14 @@ const ContentsPage = () => {
 
   }, [contentsId]);
 
+
+  console.log("conents:", contents)
+
   return (
     <div className="contentPage__container">
       <ContentsInfo
         adult={contents.adult}
-        backdrop={`${IMAGE_BASE_URL}w780${contents.backdrop_path}`}
+        backdrop_path={contents.backdrop_path}
         genres={contents.genres}
         original_language={contents.original_language}
         overview={contents.overview}
@@ -63,6 +66,7 @@ const ContentsPage = () => {
         casts={casts}
         director={director}
         id={contentsId}
+        poster_path={contents.poster_path}
       >
       </ContentsInfo>
       <div className="contentPage__recommendationContainer">

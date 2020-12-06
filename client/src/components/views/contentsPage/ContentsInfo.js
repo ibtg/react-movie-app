@@ -1,12 +1,14 @@
 import React from 'react';
 import './ContentsInfo.scss';
 import Like from './Like';
+import {  IMAGE_BASE_URL } from '../../Config';
 
 const ContentsInfo = (props) => {
+  console.log("props: ", props)
   const {
-    adult, backdrop, genres, original_language, 
+    adult, backdrop_path, genres, original_language, 
     overview, popularity, release_date, runtime, 
-    title, vote_average, casts, director, id} = props
+    title, vote_average, casts, director, id, poster_path} = props
 
   return (
     <div className="contentsInfo__container">
@@ -17,7 +19,7 @@ const ContentsInfo = (props) => {
           <span className="rating__contents">{vote_average}</span>
           <span className="rating__title">POPULARITY : </span>
           <span className="rating__contents">{popularity}</span>
-          <span className="rating__runtime">{runtime}min</span>
+          {runtime && <span className="rating__runtime">{runtime}min</span> }
           {adult &&<span className="rating__adult">`19`</span>}
         </div>
 
@@ -46,6 +48,7 @@ const ContentsInfo = (props) => {
         userFrom={localStorage.getItem('userId')}
         id={id}
         title={title}
+        poster_path={poster_path}
         ></Like>
 
 
@@ -53,7 +56,7 @@ const ContentsInfo = (props) => {
       <div className="contentsInfo__imageContainer">
         <img
         className="contentsInfo__image"
-        src={backdrop}
+        src={backdrop_path ? `${IMAGE_BASE_URL}w780${backdrop_path}` : `${IMAGE_BASE_URL}w780${poster_path}` }
         />
       </div>
 
