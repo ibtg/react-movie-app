@@ -15,12 +15,11 @@ const ContentsPage = () => {
   const [recommendations, setRecommendations] = useState([])
 
   const contentsType = useLocation().state.type
-  // const contentsPage = useLocation().state.page
-  // const contentsGenreList = useLocation().state.genreList
   const contentsId = useLocation().state.id
   
 
   useEffect(() => {
+    
     // get contents
     let endpointInfo = `${API_URL}${contentsType}/${contentsId}?api_key=${API_KEY}`;
     fetch(endpointInfo)
@@ -48,10 +47,8 @@ const ContentsPage = () => {
         setRecommendations(response)
       });
 
-  }, []);
+  }, [contentsId]);
 
-
-  // show movie info, recommendation
   return (
     <div className="contentPage__container">
       <ContentsInfo
@@ -70,11 +67,17 @@ const ContentsPage = () => {
       >
       </ContentsInfo>
       <div className="contentPage__recommendationContainer">
-      { recommendations.length !== 0 &&
+      { recommendations.results && recommendations.results.length !==0 ?
       <Display 
       pages={recommendations.results} 
       title="RECOMMENDATIONS"
-      ></Display>}
+      type={contentsType}
+      ></Display> :
+      <div className="contentPage__recommendationNone">
+        NO RECOMMENDATIONS RESULTS
+        </div>
+      }
+      
       </div>
     </div>
 

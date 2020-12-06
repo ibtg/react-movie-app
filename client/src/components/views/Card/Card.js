@@ -18,6 +18,7 @@ const Card = ({page, type}) => {
   }
 
   const title = page.title ? page.title : page.name
+  // console.log("page: ", page)
   return(
   <li className="card__imageContainer">
     <img className="card__image"
