@@ -4,26 +4,17 @@ import './Like.scss';
 import { BsPlus } from 'react-icons/bs';
 import { useRef } from 'react';
 
-function Like({userFrom, id, title}) {
-  // const movieId = props.movieId;
-  // const userFrom = props.userFrom;
-  // const movieTitle = props.movieInfo.title;
-  // const moviePost = props.movieInfo.poster_path;
-  // const movieRunTime = props.movieInfo.runtime;
-  // const movieId = id;
-  // const userFrom = userFrom;
-  // const movieTitle = title;
+function Like({userFrom, id, title, poster_path, type}) {
 
   const [LikedNumber, setLikedNumber] = useState(0);
   const [Liked, setLiked] = useState(false);
-  const buttonRef = useRef()
 
   let variables = {
     userFrom: userFrom,
-    movieId: id,
-    movieTitle: title,
-    // moviePost: moviePost,
-    // movieRunTime: movieRunTime,
+    id: id,
+    title: title,
+    poster_path: poster_path,
+    type:type
   };
 
   useEffect(() => {
@@ -36,6 +27,7 @@ function Like({userFrom, id, title}) {
     });
 
     Axios.post('/api/like/liked', variables).then((response) => {
+      console.log("like  response", response)
       if (response.data.success) {
         setLiked(response.data.liked);
       } else {
