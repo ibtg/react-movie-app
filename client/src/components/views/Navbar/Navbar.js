@@ -35,7 +35,7 @@ function Navbar(props) {
       <nav className="navbar__container">
         <a href="/" className="navbar__title">
           <BiMovie></BiMovie>
-          <span>TMDB</span>
+          <span className="navbar__logo" >TMDB</span>
         </a>
         <form onSubmit={onInputSubmit} className="navbar__form">
           <input
@@ -62,12 +62,12 @@ function Navbar(props) {
       <nav className="navbar__container">
         <a href="/" className="navbar__title">
           <BiMovie></BiMovie>
-          <span>TMDB</span>
+          <span className="navbar__logo">TMDB</span>
         </a>
         <form onSubmit={onInputSubmit} className="navbar__form">
           <input
             className="navbar__input"
-            placeholder=" Search keywords"
+            placeholder=" Search Title of Movie or TV series"
             value={Search}
             onChange={onInputChange}
           ></input>
