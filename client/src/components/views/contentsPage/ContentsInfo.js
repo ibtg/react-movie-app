@@ -1,18 +1,13 @@
 import React from 'react';
-import { useRef } from 'react';
-import { IMAGE_BASE_URL } from '../../Config';
 import './ContentsInfo.scss';
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+import Like from './Like';
 
 const ContentsInfo = (props) => {
-  const {adult, backdrop, genres, original_language, overview, popularity, release_date, runtime, title, vote_average, casts, director} = props
-  // const contentsInfoBackgroundRef = useRef()
-  // console.log(casts[0] && casts[0].id)
-  // const bg = require(backdrop)
+  const {
+    adult, backdrop, genres, original_language, 
+    overview, popularity, release_date, runtime, 
+    title, vote_average, casts, director, id} = props
 
-
-  // 첫번째 div는 info
-  // 두번째 div는 background image
   return (
     <div className="contentsInfo__container">
       <section className="contensInfo__info">
@@ -47,6 +42,11 @@ const ContentsInfo = (props) => {
               <span>{release_date && release_date.split("-")[0]}</span>
           </div>
         </div>
+        <Like
+        userFrom={localStorage.getItem('userId')}
+        id={id}
+        title={title}
+        ></Like>
 
 
       </section>

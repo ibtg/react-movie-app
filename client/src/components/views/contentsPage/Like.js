@@ -1,23 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import './Like.scss';
-import { AiOutlineLike, AiFillLike } from 'react-icons/ai';
+import { BsPlus } from 'react-icons/bs';
+import { useRef } from 'react';
 
-function Like(props) {
-  const movieId = props.movieId;
-  const userFrom = props.userFrom;
-  const movieTitle = props.movieInfo.title;
-  const moviePost = props.movieInfo.poster_path;
-  const movieRunTime = props.movieInfo.runtime;
+function Like({userFrom, id, title}) {
+  // const movieId = props.movieId;
+  // const userFrom = props.userFrom;
+  // const movieTitle = props.movieInfo.title;
+  // const moviePost = props.movieInfo.poster_path;
+  // const movieRunTime = props.movieInfo.runtime;
+  // const movieId = id;
+  // const userFrom = userFrom;
+  // const movieTitle = title;
 
   const [LikedNumber, setLikedNumber] = useState(0);
   const [Liked, setLiked] = useState(false);
+  const buttonRef = useRef()
+
   let variables = {
     userFrom: userFrom,
-    movieId: movieId,
-    movieTitle: movieTitle,
-    moviePost: moviePost,
-    movieRunTime: movieRunTime,
+    movieId: id,
+    movieTitle: title,
+    // moviePost: moviePost,
+    // movieRunTime: movieRunTime,
   };
 
   useEffect(() => {
@@ -45,6 +51,7 @@ function Like(props) {
     }
 
     if (Liked) {
+      // if like button is clicked
       Axios.post('/api/like/removeFromLiked', variables).then((response) => {
         if (response.data.success) {
           setLikedNumber(LikedNumber - 1);
@@ -54,6 +61,7 @@ function Like(props) {
         }
       });
     } else {
+      // if like button is not clicked
       Axios.post('/api/like/addToLike', variables).then((response) => {
         if (response.data.success) {
           setLikedNumber(LikedNumber + 1);
@@ -63,14 +71,23 @@ function Like(props) {
         }
       });
     }
+
   };
 
   return (
     <div className="like__container">
+      {Liked ?
+      <button className="like__buttonOn like__button" onClick={onClickLiked}>
+        <BsPlus></BsPlus> 
+        <span className="like__buttonText">MY LIST</span>
+      </button>:
       <button className="like__button" onClick={onClickLiked}>
-        {Liked ? <AiFillLike></AiFillLike> : <AiOutlineLike></AiOutlineLike>}
+        <BsPlus></BsPlus>
+        <span className="like__buttonText">MY LIST</span>
       </button>
-      <span>{LikedNumber}</span>
+      }
+
+      {Liked ? <span className="like__numbers">{LikedNumber} User like this contents</span> : ''}
     </div>
   );
 }

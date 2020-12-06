@@ -1,10 +1,8 @@
-import React, { useEffect, useState,useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import {  IMAGE_BASE_URL, API_URL, API_KEY } from '../../Config';
 import ContentsInfo from './ContentsInfo'
-import Like from './Like';
 import './ContentsPage.scss';
 import {useLocation} from 'react-router-dom';
-import Card from '../Card/Card';
 import Display from '../DisplayPage/Display'
 
 
@@ -64,6 +62,7 @@ const ContentsPage = () => {
         vote_average={contents.vote_average}
         casts={casts}
         director={director}
+        id={contentsId}
       >
       </ContentsInfo>
       <div className="contentPage__recommendationContainer">
