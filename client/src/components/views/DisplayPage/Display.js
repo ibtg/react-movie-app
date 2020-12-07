@@ -15,7 +15,7 @@ const Display = ({title, pages}) => {
       setRight(0)
     }
     else{
-      displayItemRef.current.style.transform = `translateX(-${180 * left}px)`
+      displayItemRef.current.style.transform = `translateX(-${200 * left}px)`
       setRight(left)
     }
   }
@@ -34,8 +34,8 @@ const Display = ({title, pages}) => {
   // 이때 left는 -540이 되어야 한다 
 
   const onRight = () =>{
-    if(right<15){
-      displayItemRef.current.style.transform = `translateX(-${180 * (right+1)}px)`
+    if(right<13){
+      displayItemRef.current.style.transform = `translateX(-${200 * (right+1)}px)`
       setRight(right+1)
     }
   }

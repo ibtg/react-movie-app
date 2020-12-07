@@ -16,14 +16,18 @@ const Card = ({page}) => {
 
   }
 
-  // const title = page.title ? page.title : page.name
   return(
   <li className="card__imageContainer">
+    {page.poster_path !== null ? 
     <img className="card__image"
       onClick={toMoviePage}
       src={`${IMAGE_BASE_URL}w500${page.poster_path}`}
       alt={page.title}
-    />
+    /> :
+    <div className="card__no" >No Image</div>
+      }
+
+    
     <span className="card__title">{page.title}</span>
   </li>
 
