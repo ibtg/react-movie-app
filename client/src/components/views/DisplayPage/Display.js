@@ -3,7 +3,7 @@ import './Display.scss';
 import Card from '../Card/Card'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
-const Display = ({title, pages, type}) => {
+const Display = ({title, pages}) => {
   const displayItemRef = useRef(null)
   const [right, setRight] = useState(0)
 
@@ -47,7 +47,7 @@ const Display = ({title, pages, type}) => {
         {right > 0 ? <MdKeyboardArrowLeft className="display__leftBtn display__button" onClick={onLeft}></MdKeyboardArrowLeft>: ''}
         <ul className="display__item" ref={displayItemRef}>
           {pages.map((page) => (
-          <Card page={page} key={page.id} type={page.media_type || type}></Card>))} 
+          <Card page={page} key={page.id}></Card>))} 
         </ul>
         <MdKeyboardArrowRight className="display__rightBtn display__button" onClick={onRight}></MdKeyboardArrowRight>
       </div>

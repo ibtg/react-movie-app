@@ -10,13 +10,12 @@ function LandingPage(props) {
   const [popularMovie, setPopularMovie] = useState([]);
   const [topRatedMovie, setTopRatedMovie] = useState([]);
   const [nowPlayingMovie, setNowPlayingMovie] = useState([]);
-  const [popularTV, setPopularTV] = useState([])
-  const [topRatedTV, setTopRatedTV] = useState([])
+  const [upcomingMovie, setupcomingMovie] = useState([])
   
 
   useEffect(() => {
     // TRENDING
-    const trendingUrl = `${API_URL}trending/all/day?api_key=${API_KEY}`
+    const trendingUrl = `${API_URL}trending/movie/day?api_key=${API_KEY}`
     fetchPages(trendingUrl).then((response) => {
       setTrending(response.results)
     })
@@ -39,17 +38,13 @@ function LandingPage(props) {
       setNowPlayingMovie(response.results)
     })
 
-    // TV - POPULAR
-    const popularTVUrl = `${API_URL}tv/popular?api_key=${API_KEY}`
-    fetchPages(popularTVUrl).then((response) => {
-      setPopularTV(response.results)
+    // MOVIE - UP COMING
+    const upcomingMovieVUrl = `${API_URL}movie/upcoming?api_key=${API_KEY}`
+    fetchPages(upcomingMovieVUrl).then((response) => {
+      setupcomingMovie(response.results)
     })
 
-    // TOP RATED
-    const topRatedTVUrl = `${API_URL}tv/top_rated?api_key=${API_KEY}`
-    fetchPages(topRatedTVUrl).then((response) => {
-      setTopRatedTV(response.results)
-    })
+
 
   }, []);
 
@@ -66,9 +61,6 @@ function LandingPage(props) {
     return response;
   };
 
-  // console.log("tending:", trending)
-
-
   return (
     <div className="container">
       <Display 
@@ -79,49 +71,25 @@ function LandingPage(props) {
       <Display 
       pages={popularMovie} 
       title="POPULAR MOVIES"
-      type="movie"
       ></Display>
 
       <Display 
       pages={topRatedMovie} 
       title="TOP RATED MOVIES"
-      type="movie"
       ></Display>
       
       <Display 
       pages={nowPlayingMovie} 
       title="NOW PLAYING MOVIES"
-      type="movie"
       ></Display>
       
       <Display 
-      pages={popularTV} 
-      title="POPULAR TV SERIES"
-      type="tv"
+      pages={upcomingMovie} 
+      title="UP COMING MOVIES"
       ></Display>
       
-      <Display 
-      pages={topRatedTV} 
-      title="TOP RAETED TV SERIES"
-      type="tv"
-      ></Display>
     </div>
   );
 }
 
 export default withRouter(LandingPage);
-// popularMovie={popularMovie} 
-// topRatedMovie={topRatedMovie}
-// nowPlayingMovie={nowPlayingMovie}
-// popularTV={popularTV}
-// topRatedTV={topRatedTV}
-
-
-// {Movies.length !== 0 && <Grid movies={Movies}></Grid>}
-// <div className="movie__buttonContainer">
-//   <button className="movie__button" onClick={loadMoreItems}>
-//     <MdKeyboardArrowDown
-//       style={{ width: '100%', height: '40px' }}
-//     ></MdKeyboardArrowDown>
-//   </button>
-// </div>
