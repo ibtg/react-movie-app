@@ -19,9 +19,6 @@ const LikeSchema = mongoose.Schema(
     movieRunTime: {
       type: String,
     },
-    type:{
-      type:String,
-    },
     title:{
       type:String,
     }
