@@ -1,28 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
-import Grid from '../Grid/Grid';
+import { API_URL, API_KEY } from '../../Config';
 import './SearchMovie.scss';
+import Card from '../Card/Card'
 
 function SearchMovie(props) {
-  const [Movies, setMovies] = useState([]);
-  const movieTitle = props.match.params.movieTitle;
+  const [contents, setContents] = useState([]);
+  const contentsTitle = props.match.params.movieTitle;
   useEffect(() => {
-    const endpoint = `${API_URL}search/movie?api_key=${API_KEY}&languate=en-US&query=${movieTitle}&page=1`;
+    const endpoint = `${API_URL}search/movie?api_key=${API_KEY}&languate=en-US&query=${contentsTitle}`;
     fetchMovies(endpoint);
-  }, [movieTitle]);
+  }, [contentsTitle]);
 
   const fetchMovies = (endpoint) => {
     fetch(endpoint)
       .then((response) => response.json())
       .then((response) => {
-        setMovies([...response.results]);
+        setContents([...response.results]);
       });
   };
 
   return (
     <div className="search__container">
-      {Movies.length !== 0 && <Grid movies={Movies}></Grid>}
+      <h2 className="search__title">Search results for "{contentsTitle}"</h2>
+      <ul className="search__lists">
+        {contents.map((page) => (
+        <Card page={page} key={page.id} ></Card>))} 
+      </ul>
     </div>
   );
 }

@@ -1,5 +1,18 @@
 .search__container {
-  top: 80px;
-  background-color: #f1f1f1;
-  height: 100vh;
+  position: relative;
+  padding-left: 40px;
+  padding-top: 100px;
+
+  .search__title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .search__lists {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
