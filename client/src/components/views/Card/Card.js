@@ -24,7 +24,9 @@ const Card = ({page}) => {
       src={`${IMAGE_BASE_URL}w500${page.poster_path}`}
       alt={page.title}
     /> :
-    <div className="card__no" >No Image</div>
+    <div className="card__noImage" 
+    onClick={toMoviePage}
+    >No Image</div>
       }
 
     
