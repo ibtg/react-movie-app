@@ -20,6 +20,7 @@ a {
     display: flex;
     align-items: center;
     // margin:12px;
+    // flex: 1 1 10%;
 
     & > svg {
       font-size: 32px;
@@ -34,7 +35,9 @@ a {
   }
 
   .navbar__form {
-    width: 76%;
+    // width: 76%;
+    width: 100%;
+    // flex: 1 1 80%;
   }
   .navbar__input {
     width: 100%;
@@ -56,6 +59,11 @@ a {
     height: 40px;
     display: flex;
     margin: 0 12px;
+    padding-right: 24px;
+    width: 240px;
+    // flex: 1 1 10%;
+    // right: 30px;
+    position: relative;
   }
   .navbar__button {
     width: 70px;
