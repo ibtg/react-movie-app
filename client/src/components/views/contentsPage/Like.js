@@ -4,7 +4,7 @@ import './Like.scss';
 import { BsPlus } from 'react-icons/bs';
 import { useRef } from 'react';
 
-function Like({userFrom, id, title, poster_path, type}) {
+function Like({userFrom, id, title, poster_path}) {
 
   const [LikedNumber, setLikedNumber] = useState(0);
   const [Liked, setLiked] = useState(false);
@@ -14,7 +14,6 @@ function Like({userFrom, id, title, poster_path, type}) {
     id: id,
     title: title,
     poster_path: poster_path,
-    type:type
   };
 
   useEffect(() => {

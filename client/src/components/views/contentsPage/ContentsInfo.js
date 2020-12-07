@@ -7,7 +7,7 @@ const ContentsInfo = (props) => {
   const {
     adult, backdrop_path, genres, original_language, 
     overview, popularity, release_date, runtime, 
-    title, vote_average, casts, director, id, poster_path, type} = props
+    title, vote_average, casts, director, id, poster_path} = props
 
   return (
     <div className="contentsInfo__container">
@@ -48,7 +48,6 @@ const ContentsInfo = (props) => {
         id={id}
         title={title}
         poster_path={poster_path}
-        type={type}
         ></Like>
 
 

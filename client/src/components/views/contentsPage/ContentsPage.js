@@ -11,15 +11,13 @@ const ContentsPage = () => {
   const [casts, setCasts] = useState([]);
   const [director, setDirector] = useState('');
   const [recommendations, setRecommendations] = useState([])
-
-  const contentsType = useLocation().state.type
   const contentsId = useLocation().state.id
   
 
   useEffect(() => {
     
     // get contents
-    let endpointInfo = `${API_URL}${contentsType}/${contentsId}?api_key=${API_KEY}`;
+    let endpointInfo = `${API_URL}movie/${contentsId}?api_key=${API_KEY}`;
     fetch(endpointInfo)
     .then((response) => response.json())
     .then((response) => {
@@ -27,7 +25,7 @@ const ContentsPage = () => {
     });
 
     // get casts and director
-    const endpointCrew = `${API_URL}${contentsType}/${contentsId}/credits?api_key=${API_KEY}`;
+    const endpointCrew = `${API_URL}movie/${contentsId}/credits?api_key=${API_KEY}`;
     fetch(endpointCrew)
       .then((response) => response.json())
       .then((response) => {
@@ -38,7 +36,7 @@ const ContentsPage = () => {
       });
 
     // get recommendations
-    const recommendationContens = `${API_URL}${contentsType}/${contentsId}/recommendations?api_key=${API_KEY}`;
+    const recommendationContens = `${API_URL}movie/${contentsId}/recommendations?api_key=${API_KEY}`;
     fetch(recommendationContens)
       .then((response) => response.json())
       .then((response) => {
@@ -67,7 +65,6 @@ const ContentsPage = () => {
         director={director}
         id={contentsId}
         poster_path={contents.poster_path}
-        type={contentsType}
       >
       </ContentsInfo>
       <div className="contentPage__recommendationContainer">
@@ -75,7 +72,6 @@ const ContentsPage = () => {
       <Display 
       pages={recommendations.results} 
       title="RECOMMENDATIONS"
-      type={contentsType}
       ></Display> :
       <div className="contentPage__recommendationNone">
         NO RECOMMENDATIONS RESULTS
