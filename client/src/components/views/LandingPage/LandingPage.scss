@@ -1,10 +1,52 @@
+.landingPage__imageContainer {
+  margin-top: 80px;
+  background: linear-gradient(
+    rgba(11, 12, 13, 0.1) 0%,
+    rgba(11, 12, 13, 0.17) 28%,
+    rgba(11, 12, 13, 0.5) 62%,
+    rgba(11, 12, 13, 0.85) 100%
+  );
+
+  position: relative;
+  .landingPage__info {
+    position: absolute;
+    color: #fff;
+    left: 40px;
+
+    .landingPage__trending {
+      font-size: 2.5vw;
+      margin-bottom: 18px;
+    }
+
+    .landingPage__title {
+      font-size: 2vw;
+      margin-bottom: 18px;
+    }
+
+    .landingPage__overview {
+      font-size: 1.3vw;
+      max-width: 30%;
+    }
+  }
+
+  .landingPage__image {
+    width: 100%;
+    max-height: 520px;
+    z-index: -1;
+    display: block;
+    position: relative;
+  }
+}
+
 .container {
   // background-color: rgb(20, 21, 23);
   // height: 100%;
   // position: relative;
-  padding-top: 100px;
+  // padding-top: 100px;
+
   padding-left: 40px;
   padding-bottom: 20px;
+  margin-top: -6vw;
   // display: flex;
   // flex-direction: column;
 }
