@@ -52,6 +52,7 @@ function LandingPage(props) {
         <img
         className="landingPage__image"
         src={`${IMAGE_BASE_URL}w1280${movieObj.TRENDING[0][0].backdrop_path}` }
+        alt={movieObj.TRENDING[0][0].title}
         />
         </div>
       }
