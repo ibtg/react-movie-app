@@ -32,19 +32,6 @@ const Display = ({title, pages, url}) => {
       setRight(left)
     }
   }
-  //right가 1일 때 click -> -180px -> right:2
-  // 이때 left는 none이 되어야 한다 
-
-  //right가 2일 때 click -> -360px -> right:3
-  // 이때 left는 -180이 되어야 한다 
-
-  
-  //right가 3일 때 click -> -540px -> right:4
-  // 이때 left는 -360이 되어야 한다 
-
-  
-  //right가 4일 때 click -> -720px -> right:5
-  // 이때 left는 -540이 되어야 한다 
 
   const onRight = () =>{
     if(right<13){
