@@ -1,8 +1,9 @@
 .display__container {
   display: flex;
   flex-direction: column;
-  height: 240px;
+  height: 32vh;
   width: 100%;
+  margin-bottom: 24px;
 
   .display__text {
     display: flex;
@@ -15,7 +16,7 @@
     .display__title {
       color: #ffffff;
       font-weight: 700;
-      font-size: 1.6vw;
+      font-size: 1.8vw;
     }
 
     .display__viewAll {
@@ -53,7 +54,7 @@
       color: #ffffff;
       font-size: 32px;
       font-weight: 900;
-      height: 130px;
+      height: 19vh;
       width: 48px;
       background-color: rgba(0, 0, 0, 0.6);
 

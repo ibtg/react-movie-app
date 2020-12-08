@@ -1,13 +1,12 @@
 .card__imageContainer {
   margin-right: 4px;
   list-style: none;
-  margin-bottom: 32px;
   box-sizing: border-box;
   flex-basis: 10%;
 
   .card__image {
-    width: 200px;
-    height: 130px;
+    width: 15vw;
+    height: 19vh;
     cursor: pointer;
     display: block;
 
@@ -18,14 +17,14 @@
   }
 
   .card__noImage {
-    width: 200px;
-    height: 130px;
+    width: 15vw;
+    height: 19vh;
     cursor: pointer;
     display: block;
     color: #c1c1c1;
     background-color: #f1f1f1;
     text-align: center;
-    font-size: 1.2vw;
+    font-size: 24px;
     line-height: 130px;
   }
 
@@ -34,5 +33,13 @@
     font-size: 1.1vw;
     font-weight: 600;
     display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* ellipsis line */
+    -webkit-box-orient: vertical;
+    line-height: 1.2em;
+    height: 3.6em;
   }
 }

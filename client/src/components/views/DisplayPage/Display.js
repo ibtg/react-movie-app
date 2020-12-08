@@ -28,14 +28,14 @@ const Display = ({title, pages, url}) => {
       setRight(0)
     }
     else{
-      displayItemRef.current.style.transform = `translateX(-${200 * left}px)`
+      displayItemRef.current.style.transform = `translateX(-${15 * left}vw)`
       setRight(left)
     }
   }
 
   const onRight = () =>{
-    if(right<13){
-      displayItemRef.current.style.transform = `translateX(-${200 * (right+1)}px)`
+    if(right<14){
+      displayItemRef.current.style.transform = `translateX(-${15 * (right+1)}vw)`
       setRight(right+1)
     }
   }

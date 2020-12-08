@@ -7,15 +7,18 @@
     rgba(11, 12, 13, 0.85) 100%
   );
 
+  height: 82vh;
+
   position: relative;
+
   .landingPage__info {
     position: absolute;
     color: #fff;
-    left: 40px;
-    top: 100px;
+    padding-left: 40px;
+    padding-top: 40px;
 
     .landingPage__trending {
-      font-size: 2.5vw;
+      font-size: 2.3vw;
       margin-bottom: 18px;
     }
 
@@ -26,7 +29,7 @@
     }
 
     .landingPage__overview {
-      font-size: 1.3vw;
+      font-size: 1.6vw;
       margin-top: 32px;
       max-width: 30%;
     }
@@ -34,7 +37,7 @@
 
   .landingPage__image {
     width: 100%;
-    max-height: 82vh;
+    height: 100%;
     z-index: -1;
     display: block;
     position: relative;
@@ -44,5 +47,5 @@
 .container {
   padding-left: 40px;
   padding-bottom: 20px;
-  margin-top: -6vw;
+  margin-top: -8vh;
 }

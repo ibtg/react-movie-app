@@ -1,7 +1,7 @@
 .contentsInfo__container {
   display: flex;
-  height: 60vh;
-  // width: 100vw;
+  min-height: 60vh;
+  width: 100vw;
 
   // information container
   .contensInfo__info {
@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
     color: #ffffff;
-    flex: 1 1 40%;
+    width: 40%;
     padding: 0px 20px 20px 40px;
     background-color: rgba(11, 12, 13, 0.9);
 
@@ -104,7 +104,7 @@
 
   // image container
   .contentsInfo__imageContainer {
-    flex: 1 1 60%;
+    width: 60vw;
     background: linear-gradient(
       rgba(11, 12, 13, 0) 0%,
       rgba(11, 12, 13, 0.17) 28%,
