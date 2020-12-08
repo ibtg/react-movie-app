@@ -20,8 +20,6 @@ const ShowAllPage = (props) => {
     const endpoint2 = `${API_URL}${url}?api_key=${API_KEY}&languate=en-US&page=2`;
     const endpoint3 = `${API_URL}${url}?api_key=${API_KEY}&languate=en-US&page=3`;
 
-    console.log("endpoint: ", endpoint1)
-
     Promise.all([
       fetch(endpoint1),
       fetch(endpoint2),
@@ -30,8 +28,6 @@ const ShowAllPage = (props) => {
       .then(([data1, data2, data3]) =>{
         setMovies([...movies, ...data1.results, ...data2.results, ...data3.results])
       })
-
-
 
   }, [])
 
@@ -65,7 +61,6 @@ const ShowAllPage = (props) => {
       setPageNumber(pageNumber+1)
       const endpoint = `${API_URL}${url}?api_key=${API_KEY}&languate=en-US&page=${pageNumber}`;
       fetchPages(endpoint)
-      console.log("handleScroll")
     }
 
     
