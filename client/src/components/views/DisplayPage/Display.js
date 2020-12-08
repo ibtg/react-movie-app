@@ -4,7 +4,7 @@ import Card from '../Card/Card'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { useHistory } from 'react-router-dom';
 
-const Display = ({title, pages, category}) => {
+const Display = ({title, pages, url}) => {
   const displayItemRef = useRef(null)
   const [right, setRight] = useState(0)
   const history = useHistory();
@@ -14,7 +14,7 @@ const Display = ({title, pages, category}) => {
     history.push({
       pathname:`/view/${title}`,
       state:{
-        category:category,
+        url:url,
         title:title}
     })
 

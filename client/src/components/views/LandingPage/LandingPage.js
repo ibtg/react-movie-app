@@ -63,7 +63,7 @@ function LandingPage(props) {
         key={index}
         pages={movieObj[category][0]}
         title={category}
-        category={movieObj[category][1]}
+        url={movieObj[category][1]}
         ></Display>
         ))
         }
