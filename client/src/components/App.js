@@ -9,7 +9,9 @@ import Navbar from './views/Navbar/Navbar';
 import ContentsPage from './views/contentsPage/ContentsPage';
 import LikePage from './views/LikePage/LikePage';
 import SearchMovie from './views/SearchMovie/SearchMovie';
+import ViewAllPage from './views/ViewAllPage/ViewAllPage'
 import PageNotFound from './views/utils/PageNotFound';
+
 
 function App() {
   return (
@@ -34,6 +36,10 @@ function App() {
           path="/search/:movieTitle"
           component={Auth(SearchMovie, null)}
         ></Route>
+        <Route 
+        exact
+        path="/view/:category"
+        component={Auth(ViewAllPage, null)}></Route>
         <Route path="/" component={PageNotFound}></Route>
       </Switch>
     </Suspense>

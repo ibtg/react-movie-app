@@ -3,8 +3,6 @@ import { withRouter } from 'react-router-dom';
 import { API_URL, API_KEY,IMAGE_BASE_URL } from '../../Config';
 import './LandingPage.scss';
 import Display from '../DisplayPage/Display'
-import { MdKeyboardArrowDown } from 'react-icons/md';
-import ContentsInfo from '../contentsPage/ContentsInfo'
 
 function LandingPage(props) {
   const [movieObj, setMovieObj] = useState({})
@@ -25,28 +23,16 @@ function LandingPage(props) {
         fetchPages(upcomingMovieUrl)])
         .then(([trending, popular, top, nowpaying, upcoming])=>{
           setMovieObj({
-          'TRENDING': trending.results, 
-          'POPULAR MOVIES': popular.results,
-          'TOP RATED MOVIES':top.results,
-          "NOW PLAYING MOVIES":nowpaying.results,
-          "UP COMING MOVIES":upcoming.results
+          'TRENDING': [trending.results, 'trending/movie/day'],
+          'POPULAR MOVIES': [popular.results,'movie/popular'],
+          'TOP RATED MOVIES':[top.results,'movie/top_rated'],
+          "NOW PLAYING MOVIES":[nowpaying.results,'movie/now_playing'],
+          "UP COMING MOVIES":[upcoming.results,'movie/upcoming']
         })})
     }
     fetchData()
 
   }, []);
-
-  console.log("trending: ", movieObj.TRENDING&& movieObj.TRENDING[0])
-  // console.log("trending: ", Object.keys(movieObj))
-  // console.log("trending: ", trending)
-
-  // const loadMoreItems = () => {
-  //   const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&languate=en-US&page=${CurrentPage}`;
-  //   fetchPages(endpoint).then((response) => {
-  //     setMovies([...Movies, ...response.results]);
-  //     setCurrentPage(response.page + 1);
-  //   });
-  // };
 
   const fetchPages = async (endpoint) => {
     const response = await fetch(endpoint).then((response) => response.json());
@@ -59,13 +45,13 @@ function LandingPage(props) {
       <div className="landingPage__imageContainer">
         <div className="landingPage__info">
           <h1 className="landingPage__trending">TRENDING MOVIE</h1>
-          <h2 className="landingPage__title">{movieObj.TRENDING[0].title}</h2>
-          <p className="landingPage__overview">{movieObj.TRENDING[0].overview}</p>
+          <h2 className="landingPage__title">{movieObj.TRENDING[0][0].title}</h2>
+          <p className="landingPage__overview">{movieObj.TRENDING[0][0].overview}</p>
         </div>
 
         <img
         className="landingPage__image"
-        src={`${IMAGE_BASE_URL}w1280${movieObj.TRENDING[0].backdrop_path}` }
+        src={`${IMAGE_BASE_URL}w1280${movieObj.TRENDING[0][0].backdrop_path}` }
         />
         </div>
       }
@@ -75,15 +61,14 @@ function LandingPage(props) {
       Object.keys(movieObj).map((category, index) =>(
         <Display
         key={index}
-        pages={movieObj[category]}
+        pages={movieObj[category][0]}
         title={category}
+        category={movieObj[category][1]}
         ></Display>
         ))
         }
       </div>
     </>
-
- 
 
     );
 }
