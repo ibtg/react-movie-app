@@ -67,7 +67,7 @@ function Navbar(props) {
         <form onSubmit={onInputSubmit} className="navbar__form">
           <input
             className="navbar__input"
-            placeholder=" Search Title of Movie or TV series"
+            placeholder=" Enter Movie Title"
             value={Search}
             onChange={onInputChange}
           ></input>
