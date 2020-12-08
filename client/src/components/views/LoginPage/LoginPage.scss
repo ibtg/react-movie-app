@@ -3,37 +3,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.login__form {
-  display: flex;
-  flex-direction: column;
-}
+  .login__form {
+    display: flex;
+    flex-direction: column;
 
-.login__email,
-.login__password {
-  width: 320px;
-  height: 40px;
-  margin-bottom: 8px;
-  border: solid 1px #dadada;
-  text-indent: 8px;
-}
+    .login__email,
+    .login__password {
+      width: 320px;
+      height: 40px;
+      margin-bottom: 8px;
+      border: solid 1px #dadada;
+      text-indent: 8px;
+    }
 
-.login__email:focus {
-  outline: none;
-  border: solid 1px #1ca8ed;
-}
+    .login__email:focus,
+    .login__password:focus {
+      outline: none;
+      border: solid 1px #1ca8ed;
+    }
 
-.login__password:focus {
-  outline: none;
-  border: solid 1px #1ca8ed;
-}
-
-.login__button {
-  background-color: #1ca8ed;
-  height: 40px;
-  outline: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
+    .login__button {
+      background-color: #1ca8ed;
+      height: 40px;
+      outline: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
 }
