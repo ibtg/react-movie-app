@@ -1,0 +1,21 @@
+.allPage__container {
+  position: relative;
+  padding-left: 40px;
+  padding-top: 100px;
+
+  .allPage__title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .allPage__lists {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
