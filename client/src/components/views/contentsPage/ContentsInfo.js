@@ -16,10 +16,10 @@ const ContentsInfo = (props) => {
         <div className="contentsInfo__rating">
           <span className="rating__title">RATING : </span>
           <span className="rating__contents">{vote_average}</span>
-          <span className="rating__title">POPULARITY : </span>
+          <span className="rating__title rating__popularity">POPULARITY : </span>
           <span className="rating__contents">{popularity}</span>
-          {runtime && <span className="rating__runtime">{runtime}min</span> }
-          {adult &&<span className="rating__adult">`19`</span>}
+          {runtime !==0 && <span className="rating__runtime">{runtime}min</span> }
+          {adult &&<span className="rating__adult">Adult</span>}
         </div>
 
         <p className="contentsInfo__overview">{overview}</p>
@@ -56,6 +56,7 @@ const ContentsInfo = (props) => {
         <img
         className="contentsInfo__image"
         src={backdrop_path ? `${IMAGE_BASE_URL}w780${backdrop_path}` : `${IMAGE_BASE_URL}w780${poster_path}` }
+        alt={title}
         />
       </div>
 
