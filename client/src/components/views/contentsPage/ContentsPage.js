@@ -46,8 +46,6 @@ const ContentsPage = () => {
   }, [contentsId]);
 
 
-  console.log("conents:", contents)
-
   return (
     <div className="contentPage__container">
       <ContentsInfo
@@ -72,6 +70,7 @@ const ContentsPage = () => {
       <Display 
       pages={recommendations.results} 
       title="RECOMMENDATIONS"
+      url={`movie/${contentsId}/recommendations`}
       ></Display> :
       <div className="contentPage__recommendationNone">
         NO RECOMMENDATIONS RESULTS
@@ -84,30 +83,5 @@ const ContentsPage = () => {
   );
 }
 
-// 아래에 recommendation보여줄 것
 export default ContentsPage;
 
-// {Movie.length !== 0 && <MovieInfo movieInfo={Movie}></MovieInfo>}
-// {Casts.length !== 0 && (
-//   <MovieActor castInfo={Casts} directorInfo={Director}></MovieActor>
-// )}
-
-      {/* <img 
-      className="contentPage__image"
-      src={`${IMAGE_BASE_URL}original${contentsPage.backdrop_path}`} 
-      alt="background image"/>
-      <Like
-        movieInfo={Movie}
-        // movieId={movieId}
-        userFrom={localStorage.getItem('userId')}
-      ></Like> */}
-
-            
-      // <div className="recommendations__container">
-      //   {recommendations.length !==0 &&       
-      //   <ul className="recommendations__item" >
-      //     {recommendations.map((page) => (
-      //     <Card page={page} key={page.id} type={contentsType}></Card>))} 
-      //   </ul>}
-
-      // </div>
