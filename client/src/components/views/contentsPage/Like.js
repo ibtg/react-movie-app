@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import './Like.scss';
 import { BsPlus } from 'react-icons/bs';
-import { useRef } from 'react';
 
 function Like({userFrom, id, title, poster_path}) {
 
@@ -26,14 +25,13 @@ function Like({userFrom, id, title, poster_path}) {
     });
 
     Axios.post('/api/like/liked', variables).then((response) => {
-      console.log("like  response", response)
       if (response.data.success) {
         setLiked(response.data.liked);
       } else {
         alert('Faild to get information');
       }
     });
-  }, []);
+  }, [variables]);
 
   const onClickLiked = () => {
     if (userFrom === null) {
