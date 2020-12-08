@@ -1,10 +1,9 @@
 .card__imageContainer {
-  width: 200px;
-  height: 160px;
   margin-right: 4px;
   list-style: none;
   margin-bottom: 32px;
   box-sizing: border-box;
+  flex-basis: 10%;
 
   .card__image {
     width: 200px;
