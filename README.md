@@ -3,11 +3,11 @@
 - 영화를 검색해서 정보를 얻을 수 있는 웹 어플리케이션입니다
 - 다음과 같은 주요 기능을 구현하였습니다
 
-  - 영화 검색 및 검색한 영화에 대한 상세 정보 제공 페이지
-  - 회원가입, 로그인, 로그아웃
-  - Carousel slider 방식으로 카테고리 별로 영화 포스터 보여주기
-  - 내가 좋아하는 영화를 추가할 수 있는 기능
-  - Infinite Scrolling을 통해 영화 목록가져오기
+  - 회원가입, 로그인, 로그아웃 및 유저의 상태에 따라 컴포넌트 접근을 제한하는Authentification Check 구현
+  - Carousel slider 방식으로 카테고리 별 추천 영화 제공
+  - 해당 카테고리의 모든 영화를 볼 수 있는 Infinite Scrolling 기능 구현
+  - 검색한 영화에 대한 정보 제공 및 해당 영화와 관련된 영화 추천
+  - 내가 좋아하는 영화를 리스트에 추가할 수 있는 기능
 
 - heroku를 사용해서 배포하였습니다.
 - [https://the-movie-api-app.herokuapp.com/](https://the-movie-api-app.herokuapp.com/)
@@ -62,9 +62,7 @@ $ npm instal
 - Node.js
 - Mongo DB
 
-&nbsp;
-
-- Folder Structure
+### Folder Structure
 
 ```
 ├─ server
@@ -132,9 +130,7 @@ $ npm instal
 - Scss
 - Redux
 
-&nbsp;
-
-- Folder Structure
+### Folder Structure
 
 ```
 ├─ client/src
@@ -160,90 +156,62 @@ $ npm instal
 
   - redux의 action을 위한 folder로 dispatch에 따라 endpoint로 request를 보내는 함수들이 정의되어 있습니다
 
-  &nbsp;
-
 - \_reducers
 
   - redux의 reducer을 위한 folder로 action에 따라 state를 update해서 return 해줍니다.
-
-  &nbsp;
 
 - components/views
 
   - UI 컴포넌트들이 정의되어 있습니다.
 
-    &nbsp;
-
   - Card
 
     - 각 영화의 포스터를 보여주기 위한 컴포넌트입니다
-
-    &nbsp;
 
   - contentPage
 
     - 영화에 대한 기본정보 및 관련있는 다른 추천 영화가 표시되는 페이지입니다
     - MY LIST 버튼을 눌러서 내가 좋아하는 영화를 목록에 추가할 수 있습니다
 
-      &nbsp;
-
   - DisplayPage
 
     - Carousel slider 방식으로 카테고리 별로 영화를 보여주기 위한 컴포넌트 입니다.
     - DisplayPage 컴포넌트 안에서 Card 컴포넌트의 영화 포스터가 보여집니다
 
-    &nbsp;
-
   - LandingPage
 
     - 기본적으로 화면에 표시되는 페이지로 카테고리에 따른 영화 정보를 보여줍니다
-
-    &nbsp;
 
   - LikePage
 
     - MY LIST에 추가한 영화들을 보여줍니다
 
-    &nbsp;
-
   - LoginPage
 
     - 로그인을 위한 페이지입니다
-
-    &nbsp;
 
   - Navbar
 
     - 항상 페이지 상단에 고정되어 있으며 영화를 검색할 수 있습니다.
 
-    &nbsp;
-
   - RegisterPage
 
     - 회원가입을 위한 페이지입니다
 
-    &nbsp;
-
   - SearchMovie
 
     - 영화 제목을 검색했을 때 결과를 보여주는 페이지입니다
-
-    &nbsp;
 
   - utils
 
     - 여러 가지 상황에서 사용될 수 있는 컴포넌트를 위한 폴더
     - 페이지를 찾을 수 없을 때 화면에 보여주기 위한 컴포넌트가 있습니다
 
-    &nbsp;
-
   - ViewAllPage
 
     - 카테고리 별로 영화가 Carousel Slider 방식으로 보여지는데 모든 영화를 보고 싶은 경우 View all 버튼을 누르면 해당 카테고리에 해당하는 모든 영화를 볼 수 있습니다
 
     - Infinite Scrolling 방식을 구현해서 스크롤을 내리면 계속해서 영화 목록을 볼 수 있습니다.
-
-    &nbsp;
 
 - hoc (Higer-Order Component)
 
