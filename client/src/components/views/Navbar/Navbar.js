@@ -40,7 +40,7 @@ function Navbar(props) {
         <form onSubmit={onInputSubmit} className="navbar__form">
           <input
             className="navbar__input"
-            placeholder="Search keywords"
+            placeholder=" Enter Movie Title"
             value={Search}
             onChange={onInputChange}
           ></input>
@@ -48,10 +48,10 @@ function Navbar(props) {
 
         <div className="navbar__control">
           <button className="navbar__button">
-            <a href="/login">Sign In</a>
+            <a href="/login" className="navbar__buttonText" >Sign In</a>
           </button>
           <button className="navbar__button">
-            <a href="/register">Sign Up</a>
+            <a href="/register" className="navbar__buttonText">Sign Up</a>
           </button>
         </div>
       </nav>
@@ -74,10 +74,10 @@ function Navbar(props) {
         </form>
         <div className="navbar__control">
           <button className="navbar__button">
-            <a href="/like">My Page</a>
+            <a href="/like" className="navbar__buttonText">My Page</a>
           </button>
           <button className="navbar__button" onClick={onSignOutHandler}>
-            <a href="/">Sign Out</a>
+            <a href="/" className="navbar__buttonText">Sign Out</a>
           </button>
         </div>
       </nav>
