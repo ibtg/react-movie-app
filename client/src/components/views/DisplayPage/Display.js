@@ -9,7 +9,6 @@ const Display = ({title, pages, url}) => {
   const [right, setRight] = useState(0)
   const history = useHistory();
 
-
   const toViewAllpage = () =>{
     history.push({
       pathname:`/view/${title}`,
@@ -34,7 +33,7 @@ const Display = ({title, pages, url}) => {
   }
 
   const onRight = () =>{
-    if(right<14){
+    if(right<pages.length-6){
       displayItemRef.current.style.transform = `translateX(-${15 * (right+1)}vw)`
       setRight(right+1)
     }
