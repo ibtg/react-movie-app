@@ -12,7 +12,7 @@
   }
 
   .card__noImage {
-    width: 15.4vw;
+    min-width: 15.4vw;
     height: 19vh;
     cursor: pointer;
     display: block;
@@ -37,4 +37,7 @@
     line-height: 1.2em;
     height: 3.6em;
   }
+}
+.card__imageContainer:nth-child(6n) {
+  margin-right: 0;
 }

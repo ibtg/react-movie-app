@@ -27,14 +27,14 @@ const Display = ({title, pages, url}) => {
       setRight(0)
     }
     else{
-      displayItemRef.current.style.transform = `translateX(-${15 * left}vw)`
+      displayItemRef.current.style.transform = `translateX(-${15.8 * left}vw)`
       setRight(left)
     }
   }
 
   const onRight = () =>{
     if(right<pages.length-6){
-      displayItemRef.current.style.transform = `translateX(-${15 * (right+1)}vw)`
+      displayItemRef.current.style.transform = `translateX(-${15.8 * (right+1)}vw)`
       setRight(right+1)
     }
   }
