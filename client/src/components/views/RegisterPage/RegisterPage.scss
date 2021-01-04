@@ -14,11 +14,12 @@
       margin-bottom: 8px;
       border: solid 1px #dadada;
       text-indent: 8px;
-
-      &:focus {
-        outline: none;
-        border: solid 1px #1ca8ed;
-      }
+      background-color: #3f4447;
+      box-shadow: rgba(15, 15, 15, 0.2) 0px 0px 0px 1px,
+        rgba(15, 15, 15, 0.1) 0px 2px 4px;
+      color: rgba(255, 255, 255, 0.9);
+      border: none;
+      outline: none;
     }
 
     .register__button {
