@@ -44,8 +44,7 @@ function LandingPage(props) {
       {movieObj.TRENDING && 
       <div className="landingPage__imageContainer">
         <div className="landingPage__info">
-          <h1 className="landingPage__trending">TRENDING MOVIE</h1>
-          <h2 className="landingPage__title">{movieObj.TRENDING[0][0].title}</h2>
+          <h1 className="landingPage__title">{movieObj.TRENDING[0][0].title}</h1>
           <p className="landingPage__overview">{movieObj.TRENDING[0][0].overview}</p>
         </div>
 

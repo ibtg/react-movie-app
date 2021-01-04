@@ -1,23 +1,18 @@
 .card__imageContainer {
-  margin-right: 0.35vw;
+  margin-right: 0.4vw;
   list-style: none;
   box-sizing: border-box;
   flex-basis: 10%;
 
   .card__image {
-    width: 15vw;
+    width: 15.4vw;
     height: 19vh;
     cursor: pointer;
     display: block;
-
-    &:hover {
-      transform: scale(1.1);
-      transition: transform 300ms linear;
-    }
   }
 
   .card__noImage {
-    width: 15vw;
+    width: 15.4vw;
     height: 19vh;
     cursor: pointer;
     display: block;
@@ -25,7 +20,7 @@
     background-color: #f1f1f1;
     text-align: center;
     font-size: 24px;
-    line-height: 130px;
+    line-height: 19vh;
   }
 
   .card__title {
