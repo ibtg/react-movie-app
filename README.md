@@ -39,6 +39,26 @@ $ npm instal
 
 ---
 
+## 화면
+
+|              홈              |             카테고리             |
+| :--------------------------: | :------------------------------: |
+| <img src="images/home.png" > | <img src="images/category.png" > |
+
+|             회원가입             |            로그인             |
+| :------------------------------: | :---------------------------: |
+| <img src="images/register.png" > | <img src="images/login.png" > |
+
+|          모두보기           |             검색              |
+| :-------------------------: | :---------------------------: |
+| <img src="images/view.png"> | <img src="images/search.png"> |
+
+|         상세페이지          |            MY PAGE            |
+| :-------------------------: | :---------------------------: |
+| <img src="images/page.png"> | <img src="images/mylist.png"> |
+
+---
+
 ## Browsers support
 
 - 다음과 같은 웹 브라우저 환경에서 동작합니다.
