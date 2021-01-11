@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { API_URL, API_KEY } from '../../Config';
-import Card from '../Card/Card'
 import './ViewAllPage.scss';
-
-
+import Slider from '../Slider/Slider'
 const ShowAllPage = (props) => {
 
   const [fetching, setFetching] = useState(false)
@@ -65,15 +63,12 @@ const ShowAllPage = (props) => {
 
     
   }
-
+  
   return(
     <section className="allPage__container">
     <h2 className="allPage__title">{title}</h2>
     <ul className="allPage__lists">
-      {movies.map((movie) => (
-        <Card page={movie} key={movie.id}></Card>
-        
-        ))} 
+        <Slider pages={movies}></Slider>
     </ul>
   </section>
   )

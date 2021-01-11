@@ -23,11 +23,11 @@ function LandingPage(props) {
         fetchPages(upcomingMovieUrl)])
         .then(([trending, popular, top, nowpaying, upcoming])=>{
           setMovieObj({
-          'TRENDING': [trending.results, 'trending/movie/day'],
-          'POPULAR MOVIES': [popular.results,'movie/popular'],
-          'TOP RATED MOVIES':[top.results,'movie/top_rated'],
-          "NOW PLAYING MOVIES":[nowpaying.results,'movie/now_playing'],
-          "UP COMING MOVIES":[upcoming.results,'movie/upcoming']
+          'TRENDING': [trending.results.slice(0,18), 'trending/movie/day'],
+          'POPULAR MOVIES': [popular.results.slice(0,18),'movie/popular'],
+          'TOP RATED MOVIES':[top.results.slice(0,18),'movie/top_rated'],
+          "NOW PLAYING MOVIES":[nowpaying.results.slice(0,18),'movie/now_playing'],
+          "UP COMING MOVIES":[upcoming.results.slice(0,18),'movie/upcoming']
         })})
     }
     fetchData()

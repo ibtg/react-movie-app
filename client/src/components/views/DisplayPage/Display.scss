@@ -1,9 +1,9 @@
 .display__container {
   display: flex;
   flex-direction: column;
-  height: 32vh;
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 8vh;
+  position: relative;
 
   .display__text {
     display: flex;
@@ -31,45 +31,36 @@
 
   .display__items {
     position: relative;
-
-    .display__item {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      position: absolute;
-      transition: transform 300ms linear;
-    }
+    display: grid;
+    grid-template-columns: repeat(3, 100%);
+    transition: transform 500ms linear;
 
     &:hover {
       cursor: pointer;
-
-      .display__button {
-        z-index: 3;
-      }
     }
+  }
 
-    .display__button {
-      z-index: -1;
-      position: absolute;
-      color: #ffffff;
-      font-size: 32px;
-      font-weight: 900;
-      height: 19vh;
-      width: 48px;
-      background-color: rgba(0, 0, 0, 0.6);
-
-      &:hover {
-        cursor: pointer;
-      }
+  .display__button {
+    bottom: 0;
+    position: absolute;
+    cursor: pointer;
+    z-index: 3;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 900;
+    height: 19vh;
+    width: 3vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    &:hover {
+      cursor: pointer;
     }
+  }
 
-    .display__leftBtn {
-      transform: translateX(-40px);
-    }
+  .display__leftBtn {
+    left: 0;
+  }
 
-    .display__rightBtn {
-      right: 10px;
-      transform: translateX(10px);
-    }
+  .display__rightBtn {
+    right: 0;
   }
 }

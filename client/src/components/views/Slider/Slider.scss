@@ -1,0 +1,6 @@
+.display__item {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  column-gap: 0.4vw;
+  row-gap: 10vh;
+}

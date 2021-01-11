@@ -1,12 +1,13 @@
 import React, {useRef, useState} from 'react';
 import './Display.scss';
-import Card from '../Card/Card'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { useHistory } from 'react-router-dom';
+import Slider from '../Slider/Slider'
 
 const Display = ({title, pages, url}) => {
   const displayItemRef = useRef(null)
   const [right, setRight] = useState(0)
+  const [pageSection, setPageSection] = useState({0:pages.slice(0, 6), 1:pages.slice(6,12), 2:pages.slice(12,18)})
   const history = useHistory();
 
   const toViewAllpage = () =>{
@@ -27,15 +28,19 @@ const Display = ({title, pages, url}) => {
       setRight(0)
     }
     else{
-      displayItemRef.current.style.transform = `translateX(-${15.8 * left}vw)`
+      displayItemRef.current.style.transform = `translateX(-${100 * left}vw)`
       setRight(left)
     }
   }
 
   const onRight = () =>{
-    if(right<pages.length-6){
-      displayItemRef.current.style.transform = `translateX(-${15.8 * (right+1)}vw)`
+    if(right<2){
+      displayItemRef.current.style.transform = `translateX(-${(right+1)*100}%)`
       setRight(right+1)
+    }else{
+      displayItemRef.current.style.transform='none'
+      setRight(0)
+
     }
   }
 
@@ -45,14 +50,12 @@ const Display = ({title, pages, url}) => {
         <h2 className="display__title">{title}</h2>
         <span className="display__viewAll" onClick={toViewAllpage}>View all</span>
       </div>
-      <div className="display__items">
-        {right > 0 ? <MdKeyboardArrowLeft className="display__leftBtn display__button" onClick={onLeft}></MdKeyboardArrowLeft>: ''}
-        <ul className="display__item" ref={displayItemRef}>
-          {pages.map((page) => (
-          <Card page={page} key={page.id}></Card>))} 
-        </ul>
-        <MdKeyboardArrowRight className="display__rightBtn display__button" onClick={onRight}></MdKeyboardArrowRight>
+      {right > 0 ? <MdKeyboardArrowLeft className="display__leftBtn display__button" onClick={onLeft}></MdKeyboardArrowLeft>: ''}
+
+      <div className="display__items" ref={displayItemRef}>
+        {Object.keys(pageSection).map(key => <Slider key={key} pages={pageSection[key]}></Slider> )}
       </div>
+      <MdKeyboardArrowRight className="display__rightBtn display__button" onClick={onRight}></MdKeyboardArrowRight>
   </section>
   )
 }

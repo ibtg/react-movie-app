@@ -1,19 +1,21 @@
 .card__imageContainer {
-  margin-right: 0.4vw;
   list-style: none;
   box-sizing: border-box;
-  flex-basis: 10%;
+  width: 15.6vw;
+  height: 19vh;
 
   .card__image {
-    width: 15.4vw;
-    height: 19vh;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     display: block;
   }
 
   .card__noImage {
-    min-width: 15.4vw;
-    height: 19vh;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     display: block;
     color: #c1c1c1;
@@ -32,9 +34,9 @@
     text-overflow: ellipsis;
     word-wrap: break-word;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* ellipsis line */
+    -webkit-line-clamp: 2; /* ellipsis line */
     -webkit-box-orient: vertical;
     line-height: 1.2em;
-    height: 3.6em;
+    height: 2.4em;
   }
 }

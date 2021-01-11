@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
-import Card from '../Card/Card'
+import Slider from '../Slider/Slider'
 import './LikePage.scss';
 
 function LikePage() {
@@ -26,8 +26,7 @@ function LikePage() {
     <section className="likePage__container">
       <h2 className="likePage__title">MY LIST</h2>
       <ul className="like__lists">
-        {likes.map((like) => (
-        <Card page={like} key={like.id}></Card>))} 
+        <Slider pages={likes}></Slider>
       </ul>
     </section>
   );
