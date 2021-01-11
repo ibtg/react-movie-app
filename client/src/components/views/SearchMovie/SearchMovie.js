@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { API_URL, API_KEY } from '../../Config';
 import './SearchMovie.scss';
-import Card from '../Card/Card'
+import Slider from '../Slider/Slider'
 
 function SearchMovie(props) {
   const [contents, setContents] = useState([]);
@@ -24,8 +24,7 @@ function SearchMovie(props) {
     <div className="search__container">
       <h2 className="search__title">Search results for "{contentsTitle}"</h2>
       <ul className="search__lists">
-        {contents.map((page) => (
-        <Card page={page} key={page.id} ></Card>))} 
+        <Slider pages={contents}></Slider>
       </ul>
     </div>
   );

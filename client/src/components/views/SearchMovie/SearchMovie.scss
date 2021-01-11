@@ -1,19 +1,17 @@
 .search__container {
   position: relative;
-  padding-top: 100px;
   padding-left: 2vw;
   padding-right: 2vw;
+  margin-top: 14vh;
 
   .search__title {
     color: #ffffff;
     font-weight: 700;
-    font-size: 24px;
-    margin-bottom: 12px;
+    font-size: 1.8vw;
+    margin-bottom: 2vh;
   }
 
   .search__lists {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
   }
 }
