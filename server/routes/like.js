@@ -30,6 +30,7 @@ router.post('/liked', (req, res) => {
   });
 });
 
+// remove movies that i like
 router.post('/removeFromLiked', (req, res) => {
   Like.findOneAndDelete({
     id: req.body.id,
@@ -56,15 +57,7 @@ router.post('/getLikedMovie', (req, res) => {
   });
 });
 
-// remove movies that i like
-router.post('/removeFromLike', (req, res) => {
-  Like.findOneAndDelete({
-    id: req.body.id,
-    userFrom: req.body.userFrom,
-  }).exec((err, doc) => {
-    if (err) return res.status(400).send(err);
-    res.status(200).json({ success: true, doc });
-  });
-});
+
+
 
 module.exports = router;

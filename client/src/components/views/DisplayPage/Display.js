@@ -28,7 +28,7 @@ const Display = ({title, pages, url}) => {
       setRight(0)
     }
     else{
-      displayItemRef.current.style.transform = `translateX(-${100 * left}vw)`
+      displayItemRef.current.style.transform = `translateX(-${100 * left}%)`
       setRight(left)
     }
   }
